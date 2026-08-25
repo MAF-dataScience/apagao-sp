@@ -36,3 +36,4 @@ format:
       body-width: 900px
     lang: pt-BR
     fig-align: center
+    include-in-header: analytics.html
