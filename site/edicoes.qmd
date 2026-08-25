@@ -1,0 +1,20 @@
+---
+title: "Edições anteriores"
+---
+
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+#| warning: false
+
+source("R/dados.R")
+```
+
+Esta é a primeira edição do Apagão-SP (`r mes_ref_label`). Futuras edições mensais serão listadas aqui, mais recentes primeiro.
+
+<!--
+Formato sugerido pra cada linha, conforme novas edições forem publicadas:
+
+- [Novembro 2025](edicoes/2025-11.qmd) — publicada em DD/MM/AAAA
+-->

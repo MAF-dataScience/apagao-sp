@@ -1,0 +1,96 @@
+---
+title: "Metodologia"
+---
+
+## Fonte
+
+As estatísticas do painel Apagão-SP foram construídas a partir dos microdados públicos da ANEEL — [Interrupções de Energia Elétrica nas Redes de Distribuição](https://dadosabertos.aneel.gov.br/dataset/interrupcoes-de-energia-eletrica-nas-redes-de-distribuicao). Os dados contêm os registros de cada interrupção não programada reportada pelas distribuidoras, por conjunto elétrico e por alimentador de energia. O painel é uma iniciativa de divulgação de dados públicos da consultoria MAF dataScience.
+
+## Glossário
+
+BDGD
+:   Base de Dados Geográfica da Distribuidora. É o cadastro geográfico oficial que cada distribuidora envia para a ANEEL — rede, subestações, alimentadores, conjuntos, unidades consumidoras — de onde tiramos a geometria usada no site.
+
+Conjunto elétrico
+:   polígono oficial da ANEEL que representa uma fatia da área de atuação (concessão) da distribuidora — todos os conjuntos juntos cobrem a área de atuação inteira, sem sobreposição nem lacuna entre eles (definição oficial: Manual de Instruções da BDGD, Anexo I, seção 2.22). É a unidade geográfica nativa do microdado de interrupção da ANEEL — não corresponde a bairro nem a distrito, embora costume ficar numa escala parecida.
+
+Alimentador
+:   o circuito de média tensão que sai de uma subestação e leva energia até os consumidores de uma área — nível de localização mais fino disponível no microdado de interrupção, mais fino que o conjunto.
+
+Subestação
+:   instalação que recebe energia em alta tensão e distribui para uma região, alimentando os alimentadores.
+
+Distrito
+:   divisão administrativa oficial do município de São Paulo (96 no total). Não é usada nativamente pela ANEEL — a estatística por distrito deste relatório é estimada a partir do alimentador (ver [Geografia](#geografia) abaixo).
+
+Unidade consumidora (UC)
+:   a ligação de energia elétrica de um cliente — residência, comércio, indústria — à rede da distribuidora.
+
+Interrupção não programada
+:   desligamento não planejado do fornecimento de energia, causado por falha, causa externa (clima, terceiros) ou erro operacional. É o objeto deste relatório — exclui manutenção programada.
+
+Expurgo
+:   categoria de interrupção que a regulação exclui do cálculo oficial de continuidade (DEC/FEC) — por exemplo, falha do próprio consumidor, emergência ou racionamento (lista completa em [Índice Apagão-SP](#índice-apagão-sp)).
+
+DEC
+:   Duração Equivalente de Interrupção por Unidade Consumidora — quantas horas, em média, uma unidade consumidora ficou sem energia.
+
+FEC
+:   Frequência Equivalente de Interrupção por Unidade Consumidora — quantas vezes, em média, uma unidade consumidora ficou sem energia.
+
+Índice Apagão-SP
+:   o DEC normalizado numa base fácil de ler (100 = média histórica do mesmo mês) — ver [Índice Apagão-SP](#índice-apagão-sp) abaixo.
+
+## Sobre a defasagem
+
+A ANEEL declara que os microdados são atualizados mensalmente, mas há uma diferença real entre o início de uma interrupção e a data em que o registro aparece disponível para download. Pelo padrão observado, esse atraso fica em torno de **1 a 2 meses**. Por isso, uma "edição do mês" deste relatório sempre descreve um período que já ficou algumas semanas para trás e não o mês corrente do calendário.
+
+## O que entra no filtro
+
+Cada edição considera apenas interrupções:
+
+- classificadas pela ANEEL como causa **interna** e **não programada** (exclui manutenção programada e causas atribuídas a terceiros como concessionárias de outros serviços públicos);
+- com causa classificada (excluídos os registros "não classificada" ou "não identificada");
+- ocorridas em conjuntos elétricos que ficam, ao menos em mais da metade da sua área, dentro do município de São Paulo.
+
+A distribuidora responsável por toda a capital paulista é a Enel (antiga Eletropaulo) — não há, dentro deste recorte, uma segunda concessionária para comparação.
+
+## Índice Apagão-SP
+
+O Índice Apagão-SP se ancora no **DEC**, o indicador oficial de continuidade do setor elétrico definido no [PRODIST Módulo 8](https://www2.aneel.gov.br/cedoc/aren2020888_prodist_modulo_8_v11.pdf) da ANEEL. O indicador é o mesmo que a própria ANEEL/ARSESP publica por concessionária. Em linguagem simples, o DEC indica **quantas horas, em média, cada unidade consumidora de São Paulo capital ficou sem energia naquele mês**, considerando só interrupções internas, não programadas, com mais de 3 minutos de duração e excluindo os "expurgos" que a regulação já exclui do cálculo oficial (falha do próprio consumidor, emergências, entre outros — lista completa no [repositório do projeto](#)).
+
+O índice publicado é o DEC normalizado numa base fácil de ler: **100 = a média histórica do mesmo mês do calendário** (a média de todos os outros anos da série para aquele mês — ex. o índice de junho de um ano é sempre comparado à média histórica de outros junhos, nunca a maio ou dezembro). Isso resolve dois problemas de uma vez, sem precisar de média móvel: neutraliza sazonalidade (meses de temporal são estruturalmente piores que meses secos) e evita comparar um ano ainda incompleto contra anos fechados.
+
+## Causas
+
+O microdado da ANEEL classifica a causa de cada interrupção em até 4 níveis, do mais genérico ao mais específico (até 25 categorias no nível mais detalhado). Este relatório usa uma seleção do nível mais granular, reagrupada para destacar as causas com peso relevante e simplificar as residuais:
+
+- **Falha de equipamento** — falha de material ou equipamento da rede.
+- **Sobrecarga** — rede sobrecarregada além da capacidade.
+- **Terceiros** — interferência de terceiros, roubo, objeto na rede, abalroamento, ligação clandestina, entre outras.
+- **Árvore/vegetação e vento** — árvore ou galho caindo sobre a rede, e vento forte. As duas causas aparecem unidas de propósito: são códigos mutuamente exclusivos no microdado da ANEEL (a distribuidora registra um ou outro por evento), sem campo de texto livre que permita saber se um evento classificado como "vento" foi, na prática, uma árvore caindo por causa do vento — não há como separar as duas com o dado disponível.
+- **Falha operacional** — erro de operação, serviço mal executado.
+- **Outros** — desligamento para manutenção emergencial, animais, descarga atmosférica, incêndio, inundação, erosão e demais causas residuais (juntas, menos de 1% do total cada).
+
+## Geografia
+
+O microdado da ANEEL não identifica bairro, distrito nem endereço — as únicas referências geográficas de cada interrupção são o **conjunto elétrico** e o **alimentador**. A geometria vem do extrato público da BDGD da Enel-SP; o recorte de quais conjuntos pertencem à cidade de São Paulo segue o critério de interseção de área com o polígono do município (fonte: [geobr](https://github.com/ipeaGIT/geobr)/IBGE).
+
+A construção das estatísticas **por distrito** (os 96 distritos oficiais do município, usados tanto no mapa quanto na tabela "Distritos mais afetados") foi feita a partir de uma estimativa: como um alimentador frequentemente atende clientes em mais de um distrito ao mesmo tempo, cada interrupção é **repartida entre os distritos que o alimentador atinge, na mesma proporção da base real de clientes daquele alimentador em cada distrito** — nunca atribuída inteira a um distrito só.
+
+**Exemplo:** um alimentador com 700 unidades consumidoras em Vila Mariana e 300 na Saúde reparte qualquer evento seu 70%/30% entre os dois distritos, em vez de jogar o evento inteiro para o distrito onde o alimentador "está mais". Essa proporção vem de dados reais de posição de cada unidade consumidora do alimentador (base cadastral da BDGD, foto de dez/2022). É por isso que os números do mapa aparecem com casa decimal: são uma estimativa, não uma contagem exata de qual distrito cada evento pertence (o microdado da ANEEL nunca informa isso diretamente).
+
+## Dados e código abertos
+
+A base processada e o pipeline completo (R) que gera este relatório estão publicados no [repositório do projeto no GitHub](#) — inclui os scripts de conversão, o crosswalk de conjuntos elétricos e a lógica de filtro. Qualquer pessoa pode conferir como os números aqui foram calculados a partir do microdado bruto da ANEEL.
+
+Para recortes específicos — por período, por bairro, ou cruzamentos com outras bases — [fale com a MAF dataScience](index.qmd#contato).
+
+##
+
+O painel Apagão-SP é produzido pela [MAF dataScience](https://mafdatascience.com.br), consultoria de ciência de dados e pesquisa quantitativa de [Marco Antonio Faganello](https://marcofaga.github.io). Para saber mais, entre em contato no e-mail: [mafdatascience@gmail.com](mailto:mafdatascience@gmail.com){#contato}
+
+<center>
+<img src="images/logo-full.png" alt="MAF dataScience" style="height:100px;margin-bottom:0.5rem">
+</center>
+

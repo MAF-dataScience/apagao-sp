@@ -1,0 +1,106 @@
+/* Apagão-SP — identidade visual mínima do MVP.
+   Cor primária (#e66101) reaproveitada do colorBrewer já usado nos gráficos
+   exploratórios do pipeline (ver scripts/03_montar_base_sampa.R). */
+
+:root {
+  --apagao-laranja: #e66101;
+  --apagao-laranja-claro: #fdb863;
+  --apagao-cinza-escuro: #2b2b2b;
+}
+
+.navbar {
+  border-bottom: 3px solid var(--apagao-laranja);
+}
+
+.navbar-title {
+  font-weight: 700;
+  color: var(--apagao-laranja) !important;
+}
+
+h1.title, h1, h2 {
+  color: var(--apagao-cinza-escuro);
+}
+
+.notas-rodape {
+  background: #f5f5f3;
+  border-left: 4px solid #a3a29c;
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+  margin: 1rem 0 1.8rem 0;
+  font-size: 0.82rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.notas-rodape p {
+  margin: 0.3rem 0;
+}
+
+.notas-rodape sup {
+  font-weight: 700;
+  margin-right: 0.15rem;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.kpi-card {
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+}
+
+.kpi-card .kpi-valor {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--apagao-cinza-escuro);
+  line-height: 1.1;
+}
+
+.kpi-card .kpi-rotulo {
+  font-size: 0.8rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.3rem;
+}
+
+.kpi-card .kpi-variacao {
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+}
+
+.legenda-grafico {
+  font-size: 0.82rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.kpi-variacao.alta { color: #c0392b; }
+.kpi-variacao.baixa { color: #1e8449; }
+.kpi-variacao.neutra { color: #888; }
+
+.kpi-indice {
+  background: #fff4e8;
+  border: 1px solid var(--apagao-laranja-claro);
+  border-left: 6px solid var(--apagao-laranja);
+  margin-top: 1.2rem;
+}
+
+.kpi-indice .kpi-valor {
+  font-size: 3rem;
+  color: var(--apagao-laranja);
+}
+
+.kpi-indice .kpi-rotulo {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--apagao-cinza-escuro);
+  text-transform: none;
+  letter-spacing: normal;
+}

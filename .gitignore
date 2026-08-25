@@ -1,0 +1,30 @@
+# Dado bruto - grande demais pra git (4GB+) e 100% redownloadável da fonte
+# publica (ver README.md para os links)
+raw/
+
+# Bases processadas (derivadas, reproduziveis rodando scripts/ sobre raw/) -
+# excecao para a documentacao em markdown, que fica versionada
+bases/*
+!bases/*.md
+
+# Saida renderizada do site - publicada via 'quarto publish gh-pages' numa
+# branch separada, nao faz parte do codigo-fonte
+site/_site/
+site/.quarto/
+
+# Protótipos/figuras avulsas, não essenciais ao site nem ao pipeline
+graficos/
+
+# Notas internas de trabalho - nao destinadas ao repositorio publico
+CLAUDE.md
+LOG.md
+Escopo.md
+Briefing.gdoc
+
+# Lixo de ambiente local (RStudio, Claude Code, Obsidian)
+.Rproj.user/
+.Rhistory
+.RData
+Rplots.pdf
+.claude/
+.obsidian/
