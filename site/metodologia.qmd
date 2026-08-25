@@ -57,7 +57,7 @@ A distribuidora responsável por toda a capital paulista é a Enel (antiga Eletr
 
 ## Índice Apagão-SP
 
-O Índice Apagão-SP se ancora no **DEC**, o indicador oficial de continuidade do setor elétrico definido no [PRODIST Módulo 8](https://www2.aneel.gov.br/cedoc/aren2020888_prodist_modulo_8_v11.pdf) da ANEEL. O indicador é o mesmo que a própria ANEEL/ARSESP publica por concessionária. Em linguagem simples, o DEC indica **quantas horas, em média, cada unidade consumidora de São Paulo capital ficou sem energia naquele mês**, considerando só interrupções internas, não programadas, com mais de 3 minutos de duração e excluindo os "expurgos" que a regulação já exclui do cálculo oficial (falha do próprio consumidor, emergências, entre outros — lista completa no [repositório do projeto](#)).
+O Índice Apagão-SP se ancora no **DEC**, o indicador oficial de continuidade do setor elétrico definido no [PRODIST Módulo 8](https://www2.aneel.gov.br/cedoc/aren2020888_prodist_modulo_8_v11.pdf) da ANEEL. O indicador é o mesmo que a própria ANEEL/ARSESP publica por concessionária. Em linguagem simples, o DEC indica **quantas horas, em média, cada unidade consumidora de São Paulo capital ficou sem energia naquele mês**, considerando só interrupções internas, não programadas, com mais de 3 minutos de duração e excluindo os "expurgos" que a regulação já exclui do cálculo oficial (falha do próprio consumidor, emergências, entre outros — lista completa no [repositório do projeto](https://github.com/MAF-dataScience/apagao-sp)).
 
 O índice publicado é o DEC normalizado numa base fácil de ler: **100 = a média histórica do mesmo mês do calendário** (a média de todos os outros anos da série para aquele mês — ex. o índice de junho de um ano é sempre comparado à média histórica de outros junhos, nunca a maio ou dezembro). Isso resolve dois problemas de uma vez, sem precisar de média móvel: neutraliza sazonalidade (meses de temporal são estruturalmente piores que meses secos) e evita comparar um ano ainda incompleto contra anos fechados.
 
@@ -82,7 +82,7 @@ A construção das estatísticas **por distrito** (os 96 distritos oficiais do m
 
 ## Dados e código abertos
 
-A base processada e o pipeline completo (R) que gera este relatório estão publicados no [repositório do projeto no GitHub](#) — inclui os scripts de conversão, o crosswalk de conjuntos elétricos e a lógica de filtro. Qualquer pessoa pode conferir como os números aqui foram calculados a partir do microdado bruto da ANEEL.
+A base processada e o pipeline completo (R) que gera este relatório estão publicados no [repositório do projeto no GitHub](https://github.com/MAF-dataScience/apagao-sp) — inclui os scripts de conversão, o crosswalk de conjuntos elétricos e a lógica de filtro. Qualquer pessoa pode conferir como os números aqui foram calculados a partir do microdado bruto da ANEEL.
 
 Para recortes específicos — por período, por bairro, ou cruzamentos com outras bases — [fale com a MAF dataScience](index.qmd#contato).
 
