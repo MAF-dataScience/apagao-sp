@@ -1,5 +1,7 @@
 ---
 title: ""
+pagetitle: "Apagão-SP — interrupções de energia elétrica em São Paulo"
+description: "Observatório mensal de interrupções não programadas de energia elétrica na cidade de São Paulo, a partir dos microdados públicos da ANEEL."
 ---
 
 ```{r}
@@ -196,7 +198,7 @@ leaflet(geo_mapa, width = "100%", height = 560, options = leafletOptions(zoomCon
   fitBounds(lng1 = bbox_mapa[["xmin"]], lat1 = bbox_mapa[["ymin"]], lng2 = bbox_mapa[["xmax"]], lat2 = bbox_mapa[["ymax"]])
 ```
 
-## Distritos mais afetados no mês<sup>4</sup>
+## Distritos mais afetados<sup>4</sup>
 
 ::: {.panel-tabset}
 
