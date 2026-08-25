@@ -6,7 +6,7 @@ website:
   title: "Apagão-SP"
   description: "Observatório de interrupções de energia elétrica em São Paulo"
   site-url: "https://maf-datascience.github.io/apagao-sp/"
-  image: "images/logo-full.png"
+  image: "images/maf-icone.png"
   open-graph: true
   twitter-card: true
   navbar:
