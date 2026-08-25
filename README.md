@@ -1,6 +1,6 @@
 # Apagão-SP
 
-Observatório mensal de interrupções não programadas de energia elétrica na cidade de São Paulo, a partir dos microdados públicos da ANEEL. Iniciativa de divulgação de dados públicos da [MAF dataScience](https://mafdatascience.com.br).
+Observatório mensal de interrupções não programadas de energia elétrica na cidade de São Paulo, a partir dos microdados públicos da ANEEL. Iniciativa de divulgação de dados públicos da [MAF dataScience](https://github.com/MAF-dataScience/).
 
 🔗 **Site publicado:** [maf-datascience.github.io/apagao-sp](https://maf-datascience.github.io/apagao-sp/)
 
@@ -38,4 +38,4 @@ Código sob licença [MIT](LICENSE). Os dados originais são públicos, sob os t
 
 ## Contato
 
-[MAF dataScience](https://mafdatascience.com.br) — mafdatascience@gmail.com
+[MAF dataScience](https://github.com/MAF-dataScience/) — mafdatascience@gmail.com

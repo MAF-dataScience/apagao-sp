@@ -290,4 +290,4 @@ causas_12m |>
 
 ## Contato
 
-O painel Apagão-SP é produzido pela [MAF dataScience](https://mafdatascience.com.br), consultoria de ciência de dados e pesquisa quantitativa de [Marco Antonio Faganello](https://marcofaga.github.io). Para saber mais, entre em contato no e-mail: [mafdatascience@gmail.com](mailto:mafdatascience@gmail.com){#contato}
+O painel Apagão-SP é produzido pela [MAF dataScience](https://github.com/MAF-dataScience/), consultoria de ciência de dados e pesquisa quantitativa de [Marco Antonio Faganello](https://marcofaga.github.io). Para saber mais, entre em contato no e-mail: [mafdatascience@gmail.com](mailto:mafdatascience@gmail.com){#contato}

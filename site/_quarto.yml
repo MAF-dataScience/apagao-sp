@@ -20,7 +20,7 @@ website:
         href: mailto:mafdatascience@gmail.com
         aria-label: Contato
   page-footer:
-    left: "Apagão-SP · uma iniciativa <a href=\"https://mafdatascience.com.br\"><img src=\"images/logo-small.png\" alt=\"MAF dataScience\" style=\"height:22px;vertical-align:middle;margin:0 2px 2px 4px\"></a>"
+    left: "Apagão-SP · uma iniciativa <a href=\"https://github.com/MAF-dataScience/\"><img src=\"images/logo-small.png\" alt=\"MAF dataScience\" style=\"height:22px;vertical-align:middle;margin:0 2px 2px 4px\"></a>"
     right: "Dados: [ANEEL](https://dadosabertos.aneel.gov.br/dataset/interrupcoes-de-energia-eletrica-nas-redes-de-distribuicao)"
 
 format:
