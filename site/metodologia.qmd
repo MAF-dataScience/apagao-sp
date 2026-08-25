@@ -4,7 +4,7 @@ title: "Metodologia"
 
 ## Fonte
 
-As estatísticas do painel Apagão-SP foram construídas a partir dos microdados públicos da ANEEL — [Interrupções de Energia Elétrica nas Redes de Distribuição](https://dadosabertos.aneel.gov.br/dataset/interrupcoes-de-energia-eletrica-nas-redes-de-distribuicao). Os dados contêm os registros de cada interrupção não programada reportada pelas distribuidoras, por conjunto elétrico e por alimentador de energia. O painel é uma iniciativa de divulgação de dados públicos da consultoria MAF dataScience.
+As estatísticas do observatório Apagão-SP foram construídas a partir dos microdados públicos da ANEEL — [Interrupções de Energia Elétrica nas Redes de Distribuição](https://dadosabertos.aneel.gov.br/dataset/interrupcoes-de-energia-eletrica-nas-redes-de-distribuicao). Os dados contêm os registros de cada interrupção não programada reportada pelas distribuidoras, por conjunto elétrico e por alimentador de energia. O observatório é uma iniciativa de divulgação de dados públicos da consultoria MAF dataScience.
 
 ## Glossário
 
@@ -88,7 +88,7 @@ Para recortes específicos — por período, por bairro, ou cruzamentos com outr
 
 ##
 
-O painel Apagão-SP é produzido pela [MAF dataScience](https://github.com/MAF-dataScience/), consultoria de ciência de dados e pesquisa quantitativa de [Marco Antonio Faganello](https://marcofaga.github.io). Para saber mais, entre em contato no e-mail: [mafdatascience@gmail.com](mailto:mafdatascience@gmail.com){#contato}
+O observatório Apagão-SP é produzido pela [MAF dataScience](https://github.com/MAF-dataScience/), consultoria de ciência de dados e pesquisa quantitativa de [Marco Antonio Faganello](https://marcofaga.github.io). Para saber mais, entre em contato no e-mail: [mafdatascience@gmail.com](mailto:mafdatascience@gmail.com){#contato}
 
 <center>
 <img src="images/logo-full.png" alt="MAF dataScience" style="height:100px;margin-bottom:0.5rem">

@@ -1,6 +1,6 @@
 ---
 title: ""
-pagetitle: "Apagão-SP — interrupções de energia elétrica em São Paulo"
+pagetitle: "Apagão-SP — Observatório de Interrupções de Energia Elétrica em São Paulo"
 description: "Observatório mensal de interrupções não programadas de energia elétrica na cidade de São Paulo, a partir dos microdados públicos da ANEEL."
 ---
 
@@ -91,7 +91,7 @@ cat(sprintf(
 ```
 
 ::: {.notas-rodape}
-<sup>1</sup> as estatísticas deste painel descrevem as interrupções de energia elétrica na cidade de São Paulo até **`r mes_ref_label`**. A ANEEL leva, em média, de 1 a 2 meses para disponibilizar os microdados de um mês depois de ele terminar — esta é a leitura mais atualizada possível dos dados oficiais. Ver [Metodologia](metodologia.qmd).
+<sup>1</sup> as estatísticas deste observatório descrevem as interrupções de energia elétrica na cidade de São Paulo até **`r mes_ref_label`**. A ANEEL leva, em média, de 1 a 2 meses para disponibilizar os microdados de um mês depois de ele terminar — esta é a leitura mais atualizada possível dos dados oficiais. Ver [Metodologia](metodologia.qmd).
 
 <sup>2</sup> resume o mês em um só número — quanto tempo, em média, cada unidade consumidora ficou sem energia (DEC, o indicador oficial de continuidade da ANEEL), comparado à média histórica do mesmo mês do calendário. 100 é a média histórica; acima de 100 é pior que o normal para a época do ano. Detalhes em [Metodologia](metodologia.qmd#índice-apagão-sp).
 
@@ -292,4 +292,4 @@ causas_12m |>
 
 ## Contato
 
-O painel Apagão-SP é produzido pela [MAF dataScience](https://github.com/MAF-dataScience/), consultoria de ciência de dados e pesquisa quantitativa de [Marco Antonio Faganello](https://marcofaga.github.io). Para saber mais, entre em contato no e-mail: [mafdatascience@gmail.com](mailto:mafdatascience@gmail.com){#contato}
+O observatório Apagão-SP é produzido pela [MAF dataScience](https://github.com/MAF-dataScience/), consultoria de ciência de dados e pesquisa quantitativa de [Marco Antonio Faganello](https://marcofaga.github.io). Para saber mais, entre em contato no e-mail: [mafdatascience@gmail.com](mailto:mafdatascience@gmail.com){#contato}
