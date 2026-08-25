@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "edicoes.html",
+    "href": "edicoes.html",
+    "title": "Edições anteriores",
+    "section": "",
+    "text": "Esta é a primeira edição do Apagão-SP (junho 2026). Futuras edições mensais serão listadas aqui, mais recentes primeiro."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Apagão-SP",
+    "section": "",
+    "text": "Índice Apagão-SP2\n\n\n123,1\n\n\n▲ 23,1% vs. média histórica de junho\n\n\nbase 100 = média histórica de junho (8 anos)\n\n\n\n\n\nInterrupções no mês\n\n\n28.810\n\n\n▲ 21,5% vs. junho 2025\n\n\n\n\nUnidades atingidas3\n\n\n1.675.951\n\n\n▲ 15,0% vs. junho 2025\n\n\n\n\nMaior evento do mês\n\n\n12.828\n\n\nunidades consumidoras atingidas em Taboão Da Serra\n\n\n\n\nDuração média\n\n\n1,6 h\n\n\nmédia por unidade atingida (ponderada)\n\n\n\n\n1 as estatísticas deste painel descrevem as interrupções de energia elétrica na cidade de São Paulo até junho 2026. A ANEEL leva, em média, de 1 a 2 meses para disponibilizar os microdados de um mês depois de ele terminar — esta é a leitura mais atualizada possível dos dados oficiais. Ver Metodologia.\n2 resume o mês em um só número — quanto tempo, em média, cada unidade consumidora ficou sem energia (DEC, o indicador oficial de continuidade da ANEEL), comparado à média histórica do mesmo mês do calendário. 100 é a média histórica; acima de 100 é pior que o normal para a época do ano. Detalhes em Metodologia.\n3 é a soma de todas as interrupções do mês, não uma contagem de unidades consumidoras distintas — o microdado da ANEEL não identifica cada unidade individualmente. Uma mesma unidade consumidora que ficou sem energia mais de uma vez no mês é contada uma vez por interrupção sofrida.\n\n\n\n\n\nTotalPor causa\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nComparação dos dois maiores grupos de causa (nível mais genérico da classificação da ANEEL) ao longo da série — “Meio ambiente” inclui vento e árvore/vegetação, entre outras; “Próprias do sistema” inclui falha de equipamento e sobrecarga. Ver Metodologia.\n\n\n\n\nA série cobre 01/2018 a 06/2026.\n\n\n\nContagem estimada de interrupções não programadas por distrito oficial de São Paulo em junho 2026.4\n\n\n\n\n\n\n\n\n\n\nEste mêsÚltimos 12 meses\n\n\n\n\n\n\n\n\n\n\nDistrito\nInterrupções\nDuração (h)5\n\n\n\n\nCampo Limpo\n997.6\n1.9\n\n\nJardim Ângela\n941.7\n1.5\n\n\nGrajaú\n855.2\n1.9\n\n\nCapão Redondo\n807.1\n2.3\n\n\nJardim São Luís\n643.2\n1.6\n\n\nSapopemba\n618.2\n1.1\n\n\nCidade Ademar\n606.7\n1.2\n\n\nPedreira\n576.3\n1.1\n\n\nBrasilândia\n556.4\n2.0\n\n\nTremembé\n549.6\n2.1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDistrito\nInterrupções\nDuração (h)5\n\n\n\n\nCampo Limpo\n11378.6\n3.6\n\n\nGrajaú\n10494.7\n2.4\n\n\nJardim Ângela\n10341.2\n3.5\n\n\nCapão Redondo\n9387.9\n2.9\n\n\nJardim São Luís\n7806.3\n2.9\n\n\nCidade Ademar\n7329.6\n3.6\n\n\nSapopemba\n7056.2\n2.4\n\n\nCidade Dutra\n6323.7\n2.3\n\n\nPedreira\n6166.2\n2.4\n\n\nTremembé\n5888.5\n3.0\n\n\n\n\n\n\n\n\n\n\n\n4 o microdado da ANEEL não identifica o distrito de cada interrupção, só o conjunto elétrico e o alimentador. A contagem por distrito é estimada: cada evento é repartido entre os distritos que o alimentador atinge, na mesma proporção da base real de clientes daquele alimentador em cada distrito — não “tudo para um distrito só”. É por isso que os números aparecem com casa decimal. Detalhes em Metodologia.\n5 duração média ponderada por unidade consumidora atingida naquele distrito — mesmo método da “Duração média” no topo da página, agora aplicado por distrito (usando a mesma estimativa de repartição da nota 4).\n\n\n\n\n\nEste mêsÚltimos 12 meses\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nO painel Apagão-SP é produzido pela MAF dataScience, consultoria de ciência de dados e pesquisa quantitativa de Marco Antonio Faganello. Para saber mais, entre em contato no e-mail: mafdatascience@gmail.com"
+  },
+  {
+    "objectID": "index.html#como-junho-2026-se-compara-à-série-histórica",
+    "href": "index.html#como-junho-2026-se-compara-à-série-histórica",
+    "title": "Apagão-SP",
+    "section": "",
+    "text": "TotalPor causa\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nComparação dos dois maiores grupos de causa (nível mais genérico da classificação da ANEEL) ao longo da série — “Meio ambiente” inclui vento e árvore/vegetação, entre outras; “Próprias do sistema” inclui falha de equipamento e sobrecarga. Ver Metodologia.\n\n\n\n\nA série cobre 01/2018 a 06/2026."
+  },
+  {
+    "objectID": "index.html#onde-as-interrupções-se-concentraram",
+    "href": "index.html#onde-as-interrupções-se-concentraram",
+    "title": "Apagão-SP",
+    "section": "",
+    "text": "Contagem estimada de interrupções não programadas por distrito oficial de São Paulo em junho 2026.4"
+  },
+  {
+    "objectID": "index.html#distritos-mais-afetados-no-mês4",
+    "href": "index.html#distritos-mais-afetados-no-mês4",
+    "title": "Apagão-SP",
+    "section": "",
+    "text": "Este mêsÚltimos 12 meses\n\n\n\n\n\n\n\n\n\n\nDistrito\nInterrupções\nDuração (h)5\n\n\n\n\nCampo Limpo\n997.6\n1.9\n\n\nJardim Ângela\n941.7\n1.5\n\n\nGrajaú\n855.2\n1.9\n\n\nCapão Redondo\n807.1\n2.3\n\n\nJardim São Luís\n643.2\n1.6\n\n\nSapopemba\n618.2\n1.1\n\n\nCidade Ademar\n606.7\n1.2\n\n\nPedreira\n576.3\n1.1\n\n\nBrasilândia\n556.4\n2.0\n\n\nTremembé\n549.6\n2.1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDistrito\nInterrupções\nDuração (h)5\n\n\n\n\nCampo Limpo\n11378.6\n3.6\n\n\nGrajaú\n10494.7\n2.4\n\n\nJardim Ângela\n10341.2\n3.5\n\n\nCapão Redondo\n9387.9\n2.9\n\n\nJardim São Luís\n7806.3\n2.9\n\n\nCidade Ademar\n7329.6\n3.6\n\n\nSapopemba\n7056.2\n2.4\n\n\nCidade Dutra\n6323.7\n2.3\n\n\nPedreira\n6166.2\n2.4\n\n\nTremembé\n5888.5\n3.0\n\n\n\n\n\n\n\n\n\n\n\n4 o microdado da ANEEL não identifica o distrito de cada interrupção, só o conjunto elétrico e o alimentador. A contagem por distrito é estimada: cada evento é repartido entre os distritos que o alimentador atinge, na mesma proporção da base real de clientes daquele alimentador em cada distrito — não “tudo para um distrito só”. É por isso que os números aparecem com casa decimal. Detalhes em Metodologia.\n5 duração média ponderada por unidade consumidora atingida naquele distrito — mesmo método da “Duração média” no topo da página, agora aplicado por distrito (usando a mesma estimativa de repartição da nota 4)."
+  },
+  {
+    "objectID": "index.html#causas",
+    "href": "index.html#causas",
+    "title": "Apagão-SP",
+    "section": "",
+    "text": "Este mêsÚltimos 12 meses"
+  },
+  {
+    "objectID": "index.html#contato",
+    "href": "index.html#contato",
+    "title": "Apagão-SP",
+    "section": "",
+    "text": "O painel Apagão-SP é produzido pela MAF dataScience, consultoria de ciência de dados e pesquisa quantitativa de Marco Antonio Faganello. Para saber mais, entre em contato no e-mail: mafdatascience@gmail.com"
+  },
+  {
+    "objectID": "metodologia.html",
+    "href": "metodologia.html",
+    "title": "Metodologia",
+    "section": "",
+    "text": "As estatísticas do painel Apagão-SP foram construídas a partir dos microdados públicos da ANEEL — Interrupções de Energia Elétrica nas Redes de Distribuição. Os dados contêm os registros de cada interrupção não programada reportada pelas distribuidoras, por conjunto elétrico e por alimentador de energia. O painel é uma iniciativa de divulgação de dados públicos da consultoria MAF dataScience."
+  },
+  {
+    "objectID": "metodologia.html#fonte",
+    "href": "metodologia.html#fonte",
+    "title": "Metodologia",
+    "section": "",
+    "text": "As estatísticas do painel Apagão-SP foram construídas a partir dos microdados públicos da ANEEL — Interrupções de Energia Elétrica nas Redes de Distribuição. Os dados contêm os registros de cada interrupção não programada reportada pelas distribuidoras, por conjunto elétrico e por alimentador de energia. O painel é uma iniciativa de divulgação de dados públicos da consultoria MAF dataScience."
+  },
+  {
+    "objectID": "metodologia.html#glossário",
+    "href": "metodologia.html#glossário",
+    "title": "Metodologia",
+    "section": "Glossário",
+    "text": "Glossário\n\nBDGD\n\nBase de Dados Geográfica da Distribuidora. É o cadastro geográfico oficial que cada distribuidora envia para a ANEEL — rede, subestações, alimentadores, conjuntos, unidades consumidoras — de onde tiramos a geometria usada no site.\n\nConjunto elétrico\n\npolígono oficial da ANEEL que representa uma fatia da área de atuação (concessão) da distribuidora — todos os conjuntos juntos cobrem a área de atuação inteira, sem sobreposição nem lacuna entre eles (definição oficial: Manual de Instruções da BDGD, Anexo I, seção 2.22). É a unidade geográfica nativa do microdado de interrupção da ANEEL — não corresponde a bairro nem a distrito, embora costume ficar numa escala parecida.\n\nAlimentador\n\no circuito de média tensão que sai de uma subestação e leva energia até os consumidores de uma área — nível de localização mais fino disponível no microdado de interrupção, mais fino que o conjunto.\n\nSubestação\n\ninstalação que recebe energia em alta tensão e distribui para uma região, alimentando os alimentadores.\n\nDistrito\n\ndivisão administrativa oficial do município de São Paulo (96 no total). Não é usada nativamente pela ANEEL — a estatística por distrito deste relatório é estimada a partir do alimentador (ver Geografia abaixo).\n\nUnidade consumidora (UC)\n\na ligação de energia elétrica de um cliente — residência, comércio, indústria — à rede da distribuidora.\n\nInterrupção não programada\n\ndesligamento não planejado do fornecimento de energia, causado por falha, causa externa (clima, terceiros) ou erro operacional. É o objeto deste relatório — exclui manutenção programada.\n\nExpurgo\n\ncategoria de interrupção que a regulação exclui do cálculo oficial de continuidade (DEC/FEC) — por exemplo, falha do próprio consumidor, emergência ou racionamento (lista completa em Índice Apagão-SP).\n\nDEC\n\nDuração Equivalente de Interrupção por Unidade Consumidora — quantas horas, em média, uma unidade consumidora ficou sem energia.\n\nFEC\n\nFrequência Equivalente de Interrupção por Unidade Consumidora — quantas vezes, em média, uma unidade consumidora ficou sem energia.\n\nÍndice Apagão-SP\n\no DEC normalizado numa base fácil de ler (100 = média histórica do mesmo mês) — ver Índice Apagão-SP abaixo."
+  },
+  {
+    "objectID": "metodologia.html#sobre-a-defasagem",
+    "href": "metodologia.html#sobre-a-defasagem",
+    "title": "Metodologia",
+    "section": "Sobre a defasagem",
+    "text": "Sobre a defasagem\nA ANEEL declara que os microdados são atualizados mensalmente, mas há uma diferença real entre o início de uma interrupção e a data em que o registro aparece disponível para download. Pelo padrão observado, esse atraso fica em torno de 1 a 2 meses. Por isso, uma “edição do mês” deste relatório sempre descreve um período que já ficou algumas semanas para trás e não o mês corrente do calendário."
+  },
+  {
+    "objectID": "metodologia.html#o-que-entra-no-filtro",
+    "href": "metodologia.html#o-que-entra-no-filtro",
+    "title": "Metodologia",
+    "section": "O que entra no filtro",
+    "text": "O que entra no filtro\nCada edição considera apenas interrupções:\n\nclassificadas pela ANEEL como causa interna e não programada (exclui manutenção programada e causas atribuídas a terceiros como concessionárias de outros serviços públicos);\ncom causa classificada (excluídos os registros “não classificada” ou “não identificada”);\nocorridas em conjuntos elétricos que ficam, ao menos em mais da metade da sua área, dentro do município de São Paulo.\n\nA distribuidora responsável por toda a capital paulista é a Enel (antiga Eletropaulo) — não há, dentro deste recorte, uma segunda concessionária para comparação."
+  },
+  {
+    "objectID": "metodologia.html#índice-apagão-sp",
+    "href": "metodologia.html#índice-apagão-sp",
+    "title": "Metodologia",
+    "section": "Índice Apagão-SP",
+    "text": "Índice Apagão-SP\nO Índice Apagão-SP se ancora no DEC, o indicador oficial de continuidade do setor elétrico definido no PRODIST Módulo 8 da ANEEL. O indicador é o mesmo que a própria ANEEL/ARSESP publica por concessionária. Em linguagem simples, o DEC indica quantas horas, em média, cada unidade consumidora de São Paulo capital ficou sem energia naquele mês, considerando só interrupções internas, não programadas, com mais de 3 minutos de duração e excluindo os “expurgos” que a regulação já exclui do cálculo oficial (falha do próprio consumidor, emergências, entre outros — lista completa no repositório do projeto).\nO índice publicado é o DEC normalizado numa base fácil de ler: 100 = a média histórica do mesmo mês do calendário (a média de todos os outros anos da série para aquele mês — ex. o índice de junho de um ano é sempre comparado à média histórica de outros junhos, nunca a maio ou dezembro). Isso resolve dois problemas de uma vez, sem precisar de média móvel: neutraliza sazonalidade (meses de temporal são estruturalmente piores que meses secos) e evita comparar um ano ainda incompleto contra anos fechados."
+  },
+  {
+    "objectID": "metodologia.html#causas",
+    "href": "metodologia.html#causas",
+    "title": "Metodologia",
+    "section": "Causas",
+    "text": "Causas\nO microdado da ANEEL classifica a causa de cada interrupção em até 4 níveis, do mais genérico ao mais específico (até 25 categorias no nível mais detalhado). Este relatório usa uma seleção do nível mais granular, reagrupada para destacar as causas com peso relevante e simplificar as residuais:\n\nFalha de equipamento — falha de material ou equipamento da rede.\nSobrecarga — rede sobrecarregada além da capacidade.\nTerceiros — interferência de terceiros, roubo, objeto na rede, abalroamento, ligação clandestina, entre outras.\nÁrvore/vegetação e vento — árvore ou galho caindo sobre a rede, e vento forte. As duas causas aparecem unidas de propósito: são códigos mutuamente exclusivos no microdado da ANEEL (a distribuidora registra um ou outro por evento), sem campo de texto livre que permita saber se um evento classificado como “vento” foi, na prática, uma árvore caindo por causa do vento — não há como separar as duas com o dado disponível.\nFalha operacional — erro de operação, serviço mal executado.\nOutros — desligamento para manutenção emergencial, animais, descarga atmosférica, incêndio, inundação, erosão e demais causas residuais (juntas, menos de 1% do total cada)."
+  },
+  {
+    "objectID": "metodologia.html#geografia",
+    "href": "metodologia.html#geografia",
+    "title": "Metodologia",
+    "section": "Geografia",
+    "text": "Geografia\nO microdado da ANEEL não identifica bairro, distrito nem endereço — as únicas referências geográficas de cada interrupção são o conjunto elétrico e o alimentador. A geometria vem do extrato público da BDGD da Enel-SP; o recorte de quais conjuntos pertencem à cidade de São Paulo segue o critério de interseção de área com o polígono do município (fonte: geobr/IBGE).\nA construção das estatísticas por distrito (os 96 distritos oficiais do município, usados tanto no mapa quanto na tabela “Distritos mais afetados”) foi feita a partir de uma estimativa: como um alimentador frequentemente atende clientes em mais de um distrito ao mesmo tempo, cada interrupção é repartida entre os distritos que o alimentador atinge, na mesma proporção da base real de clientes daquele alimentador em cada distrito — nunca atribuída inteira a um distrito só.\nExemplo: um alimentador com 700 unidades consumidoras em Vila Mariana e 300 na Saúde reparte qualquer evento seu 70%/30% entre os dois distritos, em vez de jogar o evento inteiro para o distrito onde o alimentador “está mais”. Essa proporção vem de dados reais de posição de cada unidade consumidora do alimentador (base cadastral da BDGD, foto de dez/2022). É por isso que os números do mapa aparecem com casa decimal: são uma estimativa, não uma contagem exata de qual distrito cada evento pertence (o microdado da ANEEL nunca informa isso diretamente)."
+  },
+  {
+    "objectID": "metodologia.html#dados-e-código-abertos",
+    "href": "metodologia.html#dados-e-código-abertos",
+    "title": "Metodologia",
+    "section": "Dados e código abertos",
+    "text": "Dados e código abertos\nA base processada e o pipeline completo (R) que gera este relatório estão publicados no repositório do projeto no GitHub — inclui os scripts de conversão, o crosswalk de conjuntos elétricos e a lógica de filtro. Qualquer pessoa pode conferir como os números aqui foram calculados a partir do microdado bruto da ANEEL.\nPara recortes específicos — por período, por bairro, ou cruzamentos com outras bases — fale com a MAF dataScience."
+  },
+  {
+    "objectID": "metodologia.html#section",
+    "href": "metodologia.html#section",
+    "title": "Metodologia",
+    "section": "",
+    "text": "O painel Apagão-SP é produzido pela MAF dataScience, consultoria de ciência de dados e pesquisa quantitativa de Marco Antonio Faganello. Para saber mais, entre em contato no e-mail: mafdatascience@gmail.com"
+  }
+]
