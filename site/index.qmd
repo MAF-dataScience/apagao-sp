@@ -40,11 +40,11 @@ variacao_html <- function(pct, texto = "vs. mês anterior", invertido = FALSE, c
 
 ### Observatório de interrupções não programadas de energia elétrica na cidade de São Paulo<br>edição de `r mes_ref_label` | publicado em `r data_publicacao`<sup>1</sup> {.pagina-subtitulo}
 
-#### Frequência de apagões sobe na maior parte da cidade em 2026 {.manchete}
+#### São Paulo tem o pior julho em frequência de apagões desde 2018 {.manchete}
 
-Os paulistanos estão enfrentando quedas de energia com mais frequência neste ano. Entre janeiro e julho, a frequência de interrupções por unidade consumidora superou a média dos últimos oito anos em 69 de 97 conjuntos elétricos da capital. O padrão de 2026, no entanto, revela apagões mais constantes, e não necessariamente mais longos.
+A frequência de interrupções por unidade consumidora subiu `r fmt_pct(kpi$fec_var_anopassado)`% em relação a julho de 2025 e ficou `r fmt_pct(kpi$fec_mes_var)`% acima da média histórica do mesmo mês. A duração média subiu `r fmt_pct(kpi$dec_var_anopassado)`% em relação ao ano passado e `r fmt_pct(kpi$dec_mes_var)`% acima da média histórica. 
 
-Duas causas respondem pela maior parte desse salto: temporais — vento forte e queda de árvores sobre a rede — e desligamentos para manutenção emergencial da concessionária. Esse segundo motivo triplicou no período, passando de 439 casos nos primeiros sete meses de 2025 para 1.348 neste ano. (metodologia da comparação em [Metodologia](metodologia.qmd#índice-apagão-sp)).
+O aumento foi liderado por `r tolower(kpi$causa1_nome)` (`r fmt_pct(kpi$causa1_pct)`% do aumento) e por `r tolower(kpi$causa2_nome)` (`r fmt_pct(kpi$causa2_pct)`%). (metodologia da comparação em [Metodologia](metodologia.qmd#índice-apagão-sp)).
 
 ```{r}
 #| label: indice-card
@@ -178,9 +178,106 @@ plot_ly(x = ~data) |>
 Comparação dos dois maiores grupos de causa (nível mais genérico da classificação da ANEEL) ao longo da série — "Meio ambiente" inclui vento e árvore/vegetação, entre outras; "Próprias do sistema" inclui falha de equipamento e sobrecarga. Ver [Metodologia](metodologia.qmd#causas).
 :::
 
+## FEC
+
+```{r}
+#| label: grafico-fec-mes
+#| echo: false
+#| message: false
+#| warning: false
+
+fec_mes_grafico |>
+  plot_ly(x = ~categoria, y = ~valor, type = "bar",
+          marker = list(color = ~ifelse(destaque, "#e66101", "#c9c8c2")),
+          text = ~fmt_pct(valor), textposition = "outside",
+          hovertemplate = "%{x}: %{y:.1f} interrupções a cada 100 UC<extra></extra>") |>
+  layout(
+    showlegend = FALSE,
+    xaxis = list(title = "", showgrid = FALSE),
+    yaxis = list(title = "Interrupções a cada 100 unidades consumidoras", rangemode = "tozero"),
+    margin = list(t = 30)
+  ) |>
+  config(displayModeBar = FALSE)
+```
+
+::: {.legenda-grafico}
+FEC de `r mes_ref_label` contra a média histórica **do mesmo mês** (outros anos de `r meses_pt[mes_ref]`, 2018 em diante) — nunca contra outros meses do ano, já que o número de interrupções é sazonal. A FEC de `r mes_ref_label` ficou `r ifelse(kpi$fec_mes_var > 0, "acima", "abaixo")` da média histórica em `r fmt_pct(abs(kpi$fec_mes_var))`%. Ver [Metodologia](metodologia.qmd#índice-apagão-sp).
+:::
+
+## DEC
+
+```{r}
+#| label: grafico-dec-mes
+#| echo: false
+#| message: false
+#| warning: false
+
+dec_mes_grafico |>
+  plot_ly(x = ~categoria, y = ~valor, type = "bar",
+          marker = list(color = ~ifelse(destaque, "#e66101", "#c9c8c2")),
+          text = ~sprintf("%s min", fmt_pct(valor)), textposition = "outside",
+          hovertemplate = "%{x}: %{y:.1f} min<extra></extra>") |>
+  layout(
+    showlegend = FALSE,
+    xaxis = list(title = "", showgrid = FALSE),
+    yaxis = list(title = "Minutos sem energia por unidade consumidora", rangemode = "tozero"),
+    margin = list(t = 30)
+  ) |>
+  config(displayModeBar = FALSE)
+```
+
+::: {.legenda-grafico}
+DEC de `r mes_ref_label` contra a média histórica **do mesmo mês** (mesma lógica do Índice Apagão-SP, acima). A DEC de `r mes_ref_label` ficou `r ifelse(kpi$dec_mes_var > 0, "acima", "abaixo")` da média histórica em `r fmt_pct(abs(kpi$dec_mes_var))`%. Ver [Metodologia](metodologia.qmd#índice-apagão-sp).
+:::
+
 :::
 
 A série cobre `r min(serie_mensal$data) |> format("%m/%Y")` a `r max(serie_mensal$data) |> format("%m/%Y")`.
+
+## O que mudou em relação a `r meses_pt[mes_ref]` de `r ano_ref - 1`
+
+Cada causa aqui é comparada só contra o mesmo mês do ano anterior — nunca contra outro mês nem contra um acumulado — para isolar o que realmente mudou de um `r meses_pt[mes_ref]` para o outro, sem efeito de sazonalidade.
+
+```{r}
+#| label: grafico-causa-aumento
+#| echo: false
+#| message: false
+#| warning: false
+
+rng_causa_aumento <- range(causa_aumento_mes$pct_do_aumento)
+folga_causa_aumento <- diff(rng_causa_aumento) * 0.25
+
+causa_aumento_mes |>
+  mutate(
+    cor_delta = ifelse(delta > 0, "#e66101", "#2a78d6"),
+    rotulo_pct = sprintf("%+.1f%%", pct_do_aumento),
+    hover_detalhe = sprintf(
+      "%s<br>%s %d: %s UC<br>%s %d: %s UC<br>Variação: %s UC (%s do total)",
+      causa_label, meses_pt[mes_ref], ano_ref - 1, fmt_n(passado),
+      meses_pt[mes_ref], ano_ref, fmt_n(atual),
+      sprintf("%+s", fmt_n(delta)), rotulo_pct
+    )
+  ) |>
+  plot_ly(x = ~pct_do_aumento, y = ~reorder(paste0(causa_label, "   "), pct_do_aumento),
+          type = "bar", orientation = "h",
+          marker = list(color = ~cor_delta),
+          text = ~rotulo_pct, textposition = "outside",
+          customdata = ~hover_detalhe,
+          hovertemplate = "%{customdata}<extra></extra>") |>
+  layout(
+    showlegend = FALSE,
+    xaxis = list(title = "% do delta líquido total de unidades atingidas", ticksuffix = "%",
+                 range = c(rng_causa_aumento[1] - folga_causa_aumento, rng_causa_aumento[2] + folga_causa_aumento),
+                 zeroline = TRUE, zerolinecolor = "#c3c2b7", zerolinewidth = 1, showgrid = FALSE),
+    yaxis = list(title = "", automargin = TRUE),
+    margin = list(t = 10, l = 10)
+  ) |>
+  config(displayModeBar = FALSE)
+```
+
+::: {.legenda-grafico}
+Cada barra é a participação daquela causa no delta líquido total de unidades consumidoras atingidas (soma de todas as causas, positivas e negativas) entre `r meses_pt[mes_ref]` de `r ano_ref - 1` e `r mes_ref_label` — não a soma só das causas que cresceram. Mesma conta por trás da frase de causas na edição do mês. Ver [Metodologia](metodologia.qmd#causas).
+:::
 
 ## Onde as interrupções se concentraram
 
@@ -251,52 +348,6 @@ ranking_12m |>
 <sup>4</sup> o microdado da ANEEL não identifica o distrito de cada interrupção, só o conjunto elétrico e o alimentador. A contagem por distrito é estimada: cada evento é repartido entre os distritos que o alimentador atinge, na mesma proporção da base real de clientes daquele alimentador em cada distrito — não "tudo para um distrito só". É por isso que os números aparecem com casa decimal. Detalhes em [Metodologia](metodologia.qmd#geografia).
 
 <sup>5</sup> duração média ponderada por unidade consumidora atingida naquele distrito — mesmo método da "Duração média" no topo da página, agora aplicado por distrito (usando a mesma estimativa de repartição da nota 4).
-:::
-
-## Causas
-
-::: {.panel-tabset}
-
-## Este mês
-
-```{r}
-#| label: causas
-#| echo: false
-#| message: false
-#| warning: false
-
-causas_mes |>
-  plot_ly(x = ~pct, y = ~reorder(paste0(causa_label, "   "), pct), type = "bar", orientation = "h",
-          marker = list(color = "#e66101"), text = ~causa_label, textposition = "none",
-          hovertemplate = "%{text}: %{x:.1f}%<extra></extra>") |>
-  layout(
-    xaxis = list(title = "% das interrupções", ticksuffix = "%"),
-    yaxis = list(title = "", automargin = TRUE),
-    margin = list(t = 10, l = 10)
-  ) |>
-  config(displayModeBar = FALSE)
-```
-
-## Últimos 12 meses
-
-```{r}
-#| label: causas-12m
-#| echo: false
-#| message: false
-#| warning: false
-
-causas_12m |>
-  plot_ly(x = ~pct, y = ~reorder(paste0(causa_label, "   "), pct), type = "bar", orientation = "h",
-          marker = list(color = "#e66101"), text = ~causa_label, textposition = "none",
-          hovertemplate = "%{text}: %{x:.1f}%<extra></extra>") |>
-  layout(
-    xaxis = list(title = "% das interrupções", ticksuffix = "%"),
-    yaxis = list(title = "", automargin = TRUE),
-    margin = list(t = 10, l = 10)
-  ) |>
-  config(displayModeBar = FALSE)
-```
-
 :::
 
 ---

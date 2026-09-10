@@ -63,18 +63,19 @@ O Índice Apagão-SP se ancora no **DEC**, o indicador oficial de continuidade d
 
 O índice publicado é o DEC normalizado numa base fácil de ler: **100 = a média histórica do mesmo mês do calendário** (a média de todos os outros anos da série para aquele mês — ex. o índice de junho de um ano é sempre comparado à média histórica de outros junhos, nunca a maio ou dezembro). Isso resolve dois problemas de uma vez, sem precisar de média móvel: neutraliza sazonalidade (meses de temporal são estruturalmente piores que meses secos) e evita comparar um ano ainda incompleto contra anos fechados.
 
-Além do índice mensal, o observatório também acompanha o **acumulado do ano até o mês de referência** (ex. janeiro a julho), sempre comparado ao mesmo recorte de meses nos anos anteriores — não ao ano fechado inteiro, o que sub-estimaria artificialmente um ano ainda em andamento. Essa leitura "mesmo período" é a base de comentários como "a frequência de interrupções (FEC) subiu em relação à média histórica do mesmo intervalo" que aparecem na edição do mês.
+A mesma lógica de "mesmo mês do calendário" vale para a **FEC** e para as comparações de causa que aparecem no texto da edição — sempre o mês de referência contra outros anos do mesmo mês (ex. julho contra outros julhos), nunca contra um acumulado de vários meses nem contra outros meses do próprio ano, já que o número de interrupções é sazonal. A edição também cita a variação contra o **mesmo mês do ano anterior** (ex. julho de 2026 vs. julho de 2025) ao lado da variação contra a média histórica — são duas leituras complementares, nunca misturadas: uma mostra a tendência de curto prazo, a outra neutraliza um ano atípico isolado.
 
 ## Causas
 
-O microdado da ANEEL classifica a causa de cada interrupção em até 4 níveis, do mais genérico ao mais específico (até 25 categorias no nível mais detalhado). Este relatório usa uma seleção do nível mais granular, reagrupada para destacar as causas com peso relevante e simplificar as residuais:
+O microdado da ANEEL classifica a causa de cada interrupção em até 4 níveis, do mais genérico ao mais específico (até 25 categorias no nível mais detalhado). A lista oficial completa dessas categorias está no [Anexo II do PRODIST Módulo 8](https://www2.aneel.gov.br/cedoc/aren2020888_prodist_modulo_8_v11.pdf) ("Lista de Fatos Geradores") — é de lá que vem, por exemplo, "Desligamento para manutenção emergencial", classificada oficialmente sob "Próprias do sistema" junto com subtensão, sobretensão e sobrecarga. A norma não define critérios de quando um evento se qualifica como cada categoria — a classificação fica a critério da distribuidora no momento do registro. Este relatório usa uma seleção do nível mais granular, reagrupada para destacar as causas com peso relevante e simplificar as residuais:
 
 - **Falha de equipamento** — falha de material ou equipamento da rede.
 - **Sobrecarga** — rede sobrecarregada além da capacidade.
 - **Terceiros** — interferência de terceiros, roubo, objeto na rede, abalroamento, ligação clandestina, entre outras.
 - **Árvore/vegetação e vento** — árvore ou galho caindo sobre a rede, e vento forte. As duas causas aparecem unidas de propósito: são códigos mutuamente exclusivos no microdado da ANEEL (a distribuidora registra um ou outro por evento), sem campo de texto livre que permita saber se um evento classificado como "vento" foi, na prática, uma árvore caindo por causa do vento — não há como separar as duas com o dado disponível.
 - **Falha operacional** — erro de operação, serviço mal executado.
-- **Outros** — desligamento para manutenção emergencial, animais, descarga atmosférica, incêndio, inundação, erosão e demais causas residuais (juntas, menos de 1% do total cada).
+- **Manutenção emergencial** — desligamento para manutenção emergencial da concessionária.
+- **Outros** — animais, descarga atmosférica, incêndio, inundação, erosão e demais causas residuais (juntas, menos de 1% do total cada).
 
 ## Geografia
 
