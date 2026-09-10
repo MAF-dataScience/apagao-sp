@@ -55,6 +55,8 @@ Cada edição considera apenas interrupções:
 
 A distribuidora responsável por toda a capital paulista é a Enel (antiga Eletropaulo) — não há, dentro deste recorte, uma segunda concessionária para comparação.
 
+Interrupções com menos de 3 minutos já não existem na fonte bruta da ANEEL, então esse corte é automático em todo o relatório. Já a exclusão de "expurgos" — falha do consumidor, emergências, entre outros (ver [Índice Apagão-SP](#índice-apagão-sp)) — só é aplicada no cálculo do índice DEC/FEC; as demais estatísticas desta página (total de interrupções, causas, mapa por distrito) incluem esses casos.
+
 ## Índice Apagão-SP
 
 O Índice Apagão-SP se ancora no **DEC**, o indicador oficial de continuidade do setor elétrico definido no [PRODIST Módulo 8](https://www2.aneel.gov.br/cedoc/aren2020888_prodist_modulo_8_v11.pdf) da ANEEL. O indicador é o mesmo que a própria ANEEL/ARSESP publica por concessionária. Em linguagem simples, o DEC indica **quantas horas, em média, cada unidade consumidora de São Paulo capital ficou sem energia naquele mês**, considerando só interrupções internas, não programadas, com mais de 3 minutos de duração e excluindo os "expurgos" que a regulação já exclui do cálculo oficial (falha do próprio consumidor, emergências, entre outros — lista completa no [repositório do projeto](https://github.com/MAF-dataScience/apagao-sp)).

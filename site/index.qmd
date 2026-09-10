@@ -40,11 +40,11 @@ variacao_html <- function(pct, texto = "vs. mês anterior", invertido = FALSE, c
 
 ### Observatório de interrupções não programadas de energia elétrica na cidade de São Paulo<br>edição de `r mes_ref_label` | publicado em `r data_publicacao`<sup>1</sup> {.pagina-subtitulo}
 
-#### Frequência de apagões sobe em quase toda a cidade em 2026 {.manchete}
+#### Frequência de apagões sobe na maior parte da cidade em 2026 {.manchete}
 
-Nos sete primeiros meses do ano, a frequência de interrupções por unidade consumidora (FEC) ficou acima da média dos últimos oito anos no mesmo período em 97 dos 99 conjuntos elétricos da capital — um aumento generalizado, não concentrado em poucos bairros. A duração média por interrupção (DEC) não acompanhou na mesma proporção: o padrão de 2026 é de mais interrupções, não de interrupções mais longas.
+Nos sete primeiros meses do ano, a frequência de interrupções por unidade consumidora (FEC) ficou acima da média dos últimos oito anos no mesmo período em 69 dos 97 conjuntos elétricos da capital com série histórica completa — mais de dois terços, um aumento amplo, ainda que não unânime. A duração média por interrupção (DEC) não acompanhou na mesma proporção: o padrão de 2026 é de mais interrupções, não de interrupções mais longas.
 
-Duas causas concentram a maior parte do aumento: interrupções por árvore/vegetação e vento — já a causa mais frequente da série — e desligamentos para manutenção emergencial da concessionária, que passaram de 439 casos no mesmo período de 2025 para 1.348 em 2026. (metodologia da comparação em [Metodologia](metodologia.qmd#índice-apagão-sp)).
+Duas causas concentram a maior parte do aumento, em unidades consumidoras atingidas: interrupções por árvore/vegetação e vento e desligamentos para manutenção emergencial da concessionária, que passaram de 439 casos no mesmo período de 2025 para 1.348 em 2026. (metodologia da comparação em [Metodologia](metodologia.qmd#índice-apagão-sp)).
 
 ```{r}
 #| label: indice-card
