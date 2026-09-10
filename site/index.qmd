@@ -42,9 +42,9 @@ variacao_html <- function(pct, texto = "vs. mês anterior", invertido = FALSE, c
 
 #### Frequência de apagões sobe na maior parte da cidade em 2026 {.manchete}
 
-Nos sete primeiros meses do ano, a frequência de interrupções por unidade consumidora (FEC) ficou acima da média dos últimos oito anos no mesmo período em 69 dos 97 conjuntos elétricos da capital com série histórica completa — mais de dois terços, um aumento amplo, ainda que não unânime. A duração média por interrupção (DEC) não acompanhou na mesma proporção: o padrão de 2026 é de mais interrupções, não de interrupções mais longas.
+Os paulistanos estão enfrentando quedas de energia com mais frequência neste ano. Entre janeiro e julho, a frequência de interrupções por unidade consumidora superou a média dos últimos oito anos em 69 de 97 conjuntos elétricos da capital. O padrão de 2026, no entanto, revela apagões mais constantes, e não necessariamente mais longos.
 
-Duas causas concentram a maior parte do aumento, em unidades consumidoras atingidas: interrupções por árvore/vegetação e vento e desligamentos para manutenção emergencial da concessionária, que passaram de 439 casos no mesmo período de 2025 para 1.348 em 2026. (metodologia da comparação em [Metodologia](metodologia.qmd#índice-apagão-sp)).
+Duas causas respondem pela maior parte desse salto: temporais — vento forte e queda de árvores sobre a rede — e desligamentos para manutenção emergencial da concessionária. Esse segundo motivo triplicou no período, passando de 439 casos nos primeiros sete meses de 2025 para 1.348 neste ano. (metodologia da comparação em [Metodologia](metodologia.qmd#índice-apagão-sp)).
 
 ```{r}
 #| label: indice-card
