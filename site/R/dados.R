@@ -34,6 +34,22 @@ mapear_causa_final <- function(causa_03, causa_04) {
   )
 }
 
+# stringr::str_to_title() capitaliza toda palavra, inclusive preposições
+# (ex. "Taboão Da Serra") — achado de Marco em 24/08/2026, corrigido em
+# 10/09/2026. Título correto em português deixa preposição/artigo minúsculo,
+# exceto quando é a primeira palavra do nome.
+titulo_pt <- function(x) {
+  preposicoes <- c("da", "de", "do", "das", "dos", "e")
+  vapply(stringr::str_to_title(x), function(titulo) {
+    palavras <- strsplit(titulo, " ")[[1]]
+    if (length(palavras) > 1) {
+      idx <- tolower(palavras[-1]) %in% preposicoes
+      palavras[-1][idx] <- tolower(palavras[-1][idx])
+    }
+    paste(palavras, collapse = " ")
+  }, character(1), USE.NAMES = FALSE)
+}
+
 # NOTA: here() resolve a raiz em site/ (o próprio _quarto.yml é reconhecido
 # como sentinela de projeto), não na raiz do projeto R (2410_interrupcao_sp.Rproj,
 # um nível acima) — por isso o ".." aqui, em vez do here() "puro" usado no
@@ -156,7 +172,7 @@ base_mes <- base |> filter(NumAno == ano_ref, mes_inicio == mes_ref)
 # maior evento isolado).
 maior_evento_row <- base_mes |> slice_max(NumUnidadeConsumidora, n = 1, with_ties = FALSE)
 kpi$maior_evento_uc       <- maior_evento_row$NumUnidadeConsumidora
-kpi$maior_evento_conjunto <- stringr::str_to_title(maior_evento_row$DscConjuntoUnidadeConsumidora)
+kpi$maior_evento_conjunto <- titulo_pt(maior_evento_row$DscConjuntoUnidadeConsumidora)
 
 causas_mes <- base_mes |>
   mutate(causa_label = mapear_causa_final(causa_03, causa_04)) |>
@@ -209,7 +225,7 @@ montar_ranking_distrito <- function(eventos_distrito_df, n_top = 10) {
     arrange(desc(n)) |>
     slice_head(n = n_top) |>
     transmute(
-      Distrito = stringr::str_to_title(nome_distrito),
+      Distrito = titulo_pt(nome_distrito),
       `Interrupções` = round(n, 1),
       `Duração (h)` = round(horas_media, 1)
     )

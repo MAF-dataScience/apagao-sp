@@ -19,6 +19,11 @@ library(scales)
 fmt_n   <- function(x) scales::comma(x, big.mark = ".", decimal.mark = ",", accuracy = 1)
 fmt_pct <- function(x) scales::comma(x, big.mark = ".", decimal.mark = ",", accuracy = 0.1)
 
+# Data de publicação desta edição — só mês/ano (fixa, não deriva de Sys.Date()),
+# mesmo estilo de mes_ref_label ("julho 2026"). Atualizar manualmente a cada
+# publicação mensal (mesma convenção manual de edicoes.qmd).
+data_publicacao <- "setembro 2026"
+
 variacao_html <- function(pct, texto = "vs. mês anterior", invertido = FALSE, colorir = TRUE) {
   if (is.na(pct)) return("<div class='kpi-variacao neutra'>sem comparação</div>")
   # colorir = FALSE p/ comparações mês a mês (sazonalidade não controlada —
@@ -31,9 +36,15 @@ variacao_html <- function(pct, texto = "vs. mês anterior", invertido = FALSE, c
 }
 ```
 
-# Apagão-SP
+# Apagão-SP {.pagina-titulo}
 
-### Interrupções não programadas de energia elétrica na cidade de São Paulo<br>edição de `r mes_ref_label`<sup>1</sup>
+### Observatório de interrupções não programadas de energia elétrica na cidade de São Paulo<br>edição de `r mes_ref_label` | publicado em `r data_publicacao`<sup>1</sup> {.pagina-subtitulo}
+
+#### Frequência de apagões sobe em quase toda a cidade em 2026 {.manchete}
+
+Nos sete primeiros meses do ano, a frequência de interrupções por unidade consumidora (FEC) ficou acima da média dos últimos oito anos no mesmo período em 97 dos 99 conjuntos elétricos da capital — um aumento generalizado, não concentrado em poucos bairros. A duração média por interrupção (DEC) não acompanhou na mesma proporção: o padrão de 2026 é de mais interrupções, não de interrupções mais longas.
+
+Duas causas concentram a maior parte do aumento: interrupções por árvore/vegetação e vento — já a causa mais frequente da série — e desligamentos para manutenção emergencial da concessionária, que passaram de 439 casos no mesmo período de 2025 para 1.348 em 2026. (metodologia da comparação em [Metodologia](metodologia.qmd#índice-apagão-sp)).
 
 ```{r}
 #| label: indice-card
@@ -188,10 +199,10 @@ bbox_mapa <- st_bbox(geo_mapa)
 # largo, então um contêiner "deitado" força zoom out demais só pra caber a
 # altura, sobrando espaço vazio nas laterais (achado de Marco, 25/08/2026)
 leaflet(geo_mapa, width = "100%", height = 560, options = leafletOptions(zoomControl = TRUE, scrollWheelZoom = FALSE)) |>
-  addProviderTiles("CartoDB.Positron") |>
+  addProviderTiles("Esri.WorldGrayCanvas") |>
   addPolygons(
     fillColor = ~pal(n), fillOpacity = 0.75, color = "#ffffff", weight = 1,
-    label = ~sprintf("%s: %s interrupções (estimado)", stringr::str_to_title(nome_distrito), fmt_pct(n)),
+    label = ~sprintf("%s: %s interrupções (estimado)", titulo_pt(nome_distrito), fmt_pct(n)),
     highlightOptions = highlightOptions(weight = 2, color = "#2b2b2b", bringToFront = TRUE)
   ) |>
   addLegend(pal = pal, values = ~n, title = "Interrupções (est.)", position = "bottomright") |>

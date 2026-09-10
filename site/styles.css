@@ -21,6 +21,24 @@ h1.title, h1, h2 {
   color: var(--apagao-cinza-escuro);
 }
 
+h1.pagina-titulo {
+  text-align: center;
+}
+
+h3.pagina-subtitulo {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #555;
+}
+
+h4.manchete {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--apagao-cinza-escuro);
+  margin: 1.4rem 0 0.6rem 0;
+}
+
 .notas-rodape {
   background: #f5f5f3;
   border-left: 4px solid #a3a29c;

@@ -2,19 +2,6 @@
 title: "Edições anteriores"
 ---
 
-```{r}
-#| label: setup
-#| echo: false
-#| message: false
-#| warning: false
+A edição do mês corrente está sempre na [página inicial](index.qmd). Aqui ficam os meses já superados, preservados exatamente como foram publicados originalmente (os números não são recalculados com dado mais recente).
 
-source("R/dados.R")
-```
-
-Esta é a primeira edição do Apagão-SP (`r mes_ref_label`). Futuras edições mensais serão listadas aqui, mais recentes primeiro.
-
-<!--
-Formato sugerido pra cada linha, conforme novas edições forem publicadas:
-
-- [Novembro 2025](edicoes/2025-11.qmd) — publicada em DD/MM/AAAA
--->
+- [Junho de 2026](edicao-2026-06.html) — publicada em 25/08/2026

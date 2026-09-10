@@ -61,6 +61,8 @@ O Índice Apagão-SP se ancora no **DEC**, o indicador oficial de continuidade d
 
 O índice publicado é o DEC normalizado numa base fácil de ler: **100 = a média histórica do mesmo mês do calendário** (a média de todos os outros anos da série para aquele mês — ex. o índice de junho de um ano é sempre comparado à média histórica de outros junhos, nunca a maio ou dezembro). Isso resolve dois problemas de uma vez, sem precisar de média móvel: neutraliza sazonalidade (meses de temporal são estruturalmente piores que meses secos) e evita comparar um ano ainda incompleto contra anos fechados.
 
+Além do índice mensal, o observatório também acompanha o **acumulado do ano até o mês de referência** (ex. janeiro a julho), sempre comparado ao mesmo recorte de meses nos anos anteriores — não ao ano fechado inteiro, o que sub-estimaria artificialmente um ano ainda em andamento. Essa leitura "mesmo período" é a base de comentários como "a frequência de interrupções (FEC) subiu em relação à média histórica do mesmo intervalo" que aparecem na edição do mês.
+
 ## Causas
 
 O microdado da ANEEL classifica a causa de cada interrupção em até 4 níveis, do mais genérico ao mais específico (até 25 categorias no nível mais detalhado). Este relatório usa uma seleção do nível mais granular, reagrupada para destacar as causas com peso relevante e simplificar as residuais:
