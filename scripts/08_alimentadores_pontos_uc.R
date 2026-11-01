@@ -1,7 +1,7 @@
 # APAGAO SP - Densidade de UC por alimentador (24/08/2026)
 # Marco Antonio Faganello - marcofaga@gmail.com
 #
-# Contexto: video time-lapse (CLAUDE.md, "Proximos passos" item 6). O
+# Contexto: video time-lapse (AGENTS.md, "Proximos passos" item 6). O
 # alimentador do sul (ex: PARELHEIROS, VARGINHA) cobre area muito maior que
 # um alimentador denso do centro - destacar uma fracao do COMPRIMENTO FISICO
 # da linha proporcional a UC atingidas superestima visualmente area rural

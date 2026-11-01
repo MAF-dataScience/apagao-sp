@@ -18,6 +18,7 @@ site/aneel_status.json
 graficos/
 
 # Notas internas de trabalho - nao destinadas ao repositorio publico
+AGENTS.md
 CLAUDE.md
 LOG.md
 Escopo.md

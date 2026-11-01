@@ -17,7 +17,7 @@
 # ou (b) rodar `quarto render` no site, antes de publicar.
 #
 # Script não editado pra rodar sozinho ainda - ver nota de ambiente no
-# CLAUDE.md ("Ambiente técnico"): rodar via PowerShell nativo ou RStudio,
+# AGENTS.md ("Ambiente técnico"): rodar via PowerShell nativo ou RStudio,
 # nunca via Rscript.exe chamado pelo bridge Bash/MSYS (readRDS trava).
 
 suppressPackageStartupMessages({
@@ -94,7 +94,7 @@ if (anyDuplicated(serie_mensal_check$data) > 0) {
   ok("nenhum mes duplicado na serie mensal")
 }
 
-# 2026 deve estar parcial (jan-jun, ver CLAUDE.md > "Defasagem de
+# 2026 deve estar parcial (jan-jun, ver AGENTS.md > "Defasagem de
 # publicação") - avisa (não é erro) se a base já tiver meses além disso,
 # só pra lembrar de atualizar este limite numa sessão futura
 limite_2026 <- as.Date("2026-07-01")

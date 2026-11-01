@@ -4,7 +4,7 @@ Documentação técnica de como o projeto calcula DEC e FEC a partir da base
 processada. Gerado em 24/08/2026, após a primeira execução real de
 `scripts/05_calcular_dec_fec.R` e validação contra a cartilha ARSESP.
 Complementa `bases/DICIONARIO_DADOS.md` (dicionário da base bruta) e
-`CLAUDE.md` (seção "Índice Apagão-SP (DEC/FEC)").
+`AGENTS.md` (seção "Índice Apagão-SP (DEC/FEC)").
 
 ## Por que DEC/FEC, e não um índice próprio
 
@@ -136,14 +136,14 @@ anualizar. Ver "Decisões pendentes" abaixo.
    fora do município de SP). Efeito no DEC/FEC agregado: provavelmente
    pequeno (a métrica é uma média ponderada, perder ~5,6% dos conjuntos não
    deveria enviesar sistematicamente, a menos que esses 8 sejam atipicamente
-   bons/ruins — não testado). Ver `CLAUDE.md`, seção "Lacuna de dados", pra
+   bons/ruins — não testado). Ver `AGENTS.md`, seção "Lacuna de dados", pra
    a lista exata dos 8 conjuntos.
 3. **DscSubestacaoDistribuicao/DscAlimentadorSubestacao não entram no
    cálculo** — DEC/FEC é só por conjunto, não por alimentador/subestação
-   (isso é outro projeto, ver `CLAUDE.md` "Granularidade geográfica
+   (isso é outro projeto, ver `AGENTS.md` "Granularidade geográfica
    disponível").
 4. **Duplicação de sub-eventos por alimentador NÃO é um problema aqui** —
-   investigado em 24/08/2026 (ver `CLAUDE.md` item 0): quando uma ocorrência
+   investigado em 24/08/2026 (ver `AGENTS.md` item 0): quando uma ocorrência
    atinge mais de um alimentador do mesmo conjunto, isso gera mais de uma
    linha na base — mas são UCs genuinamente diferentes (alimentadores
    diferentes), então cada linha soma corretamente no numerador do DEC/FEC.
@@ -182,7 +182,7 @@ série** (atrás só de 2024), e o **FEC de jan-jun/2026 é o maior de toda a
 série** — acima inclusive de 2025, que já era o segundo maior. Ou seja, a
 tendência real (mesmo recorte) é de **piora**, não melhora. Esse é
 exatamente o tipo de erro editorial que a moldura do projeto quer evitar
-(ver `CLAUDE.md`, seção "defasagem de publicação" e avaliação do projeto) —
+(ver `AGENTS.md`, seção "defasagem de publicação" e avaliação do projeto) —
 **nunca comparar DEC/FEC de períodos com cobertura temporal diferente sem
 normalizar pelo mesmo recorte de meses.**
 

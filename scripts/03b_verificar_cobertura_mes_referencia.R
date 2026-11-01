@@ -2,7 +2,7 @@
 # (mês mais recente na base) tem cobertura até o último dia do mês, sem corte
 # no meio. Motivação: já aconteceu antes de um extrato vir truncado (nov-dez
 # de 2023/2024 paravam em 31/10 porque o RDS bruto tinha sido baixado antes do
-# ano terminar — ver CLAUDE.md, seção "Lacuna de dados"). Rodar sempre depois
+# ano terminar — ver AGENTS.md, seção "Lacuna de dados"). Rodar sempre depois
 # de 03_montar_base_sampa.R, antes de seguir com DEC/FEC e publicação do site.
 
 library(here)

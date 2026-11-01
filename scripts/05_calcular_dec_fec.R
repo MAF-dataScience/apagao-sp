@@ -1,7 +1,7 @@
 # APAGAO SP - Cálculo do índice DEC/FEC (indicadores oficiais de continuidade,
 # PRODIST Módulo 8 da ANEEL) por conjunto elétrico e por mês.
 # Marco Antonio Faganello - marcofaga@gmail.com
-# Ver CLAUDE.md, seção "Índice Apagão-SP (DEC/FEC)", e bases/DICIONARIO_DADOS.md
+# Ver AGENTS.md, seção "Índice Apagão-SP (DEC/FEC)", e bases/DICIONARIO_DADOS.md
 
 # libraries ====================================================================
 

@@ -1,5 +1,5 @@
 # Crosswalk nome -> COD_ID de conjunto elétrico
-# Gerado em 23/08/2026 (ver LOG.md e CLAUDE.md, seção "Lacuna de dados")
+# Gerado em 23/08/2026 (ver LOG.md e AGENTS.md, seção "Lacuna de dados")
 #
 # Fonte única de verdade: o shapefile CONJ (raw/interrup_energia/ENEL_SP_390...gdb.zip),
 # não os anos de referência com ID nativo (2017/2018/2019/2024/2025) — testado e
@@ -9,7 +9,7 @@
 #
 # Resolve a lacuna de IdeConjuntoUnidadeConsumidora ausente em 2020-2023.
 # Rodar em R 4.5.1 (versão mais recente instalada nesta máquina — sf/geobr/here
-# instalados nela em 23/08/2026 pra unificar, ver CLAUDE.md "Ambiente técnico").
+# instalados nela em 23/08/2026 pra unificar, ver AGENTS.md "Ambiente técnico").
 
 suppressPackageStartupMessages({
   library(dplyr)
@@ -25,7 +25,7 @@ parquet_dir <- file.path(raw, "parquet")
 
 normalizar <- function(x) stri_trans_general(toupper(trimws(x)), "Latin-ASCII")
 
-# Leitura via parquet (24/08/2026, ver CLAUDE.md "Fonte dos dados") em vez de
+# Leitura via parquet (24/08/2026, ver AGENTS.md "Fonte dos dados") em vez de
 # readRDS() do RDS nacional — filtro por agente já no open_dataset() (pushdown
 # via arrow, antes de materializar em R).
 ler_ano_eletropaulo <- function(ano) {

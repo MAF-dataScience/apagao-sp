@@ -62,7 +62,7 @@ options(timeout=10000)
 
 # NOTA (23/08/2026): 2017 foi descartado da série — a Eletropaulo/SP não está
 # presente no arquivo bruto de 2017 da ANEEL sob nenhuma forma (nome, CNPJ ou
-# geografia testados e descartados). Ver CLAUDE.md, seção "Lacuna de dados".
+# geografia testados e descartados). Ver AGENTS.md, seção "Lacuna de dados".
 # A série deste projeto começa em 2018.
 
 
@@ -73,7 +73,7 @@ options(timeout=10000)
 camadas <- st_layers(here("raw", "interrup_energia", "ENEL_SP_390_2022-12-31_V11_20231001-2204.gdb.zip"))
 conjuntos <- read_sf(here("raw", "interrup_energia", "ENEL_SP_390_2022-12-31_V11_20231001-2204.gdb.zip"), layer="CONJ")
 
-# Leitura via parquet (24/08/2026, ver CLAUDE.md "Fonte dos dados") em vez de
+# Leitura via parquet (24/08/2026, ver AGENTS.md "Fonte dos dados") em vez de
 # readRDS() do RDS nacional — o raw nacional é 5-10M linhas/ano, mas só
 # ~250-470k (Eletropaulo) interessam pra esse projeto. Filtrar por agente já no
 # open_dataset() (pushdown via arrow, antes de materializar em R) evita
@@ -96,7 +96,7 @@ interr18 <- ler_ano_schema_antigo(2018)
 
 # Anos SEM IdeConjuntoUnidadeConsumidora nativo (2020-2023) — recuperado via
 # crosswalk nome->id construído a partir do shapefile CONJ.
-# Ver scripts/02_crosswalk_conjuntos.R e CLAUDE.md, seção "Lacuna de dados"
+# Ver scripts/02_crosswalk_conjuntos.R e AGENTS.md, seção "Lacuna de dados"
 # (94,4% de match; 8 conjuntos ficam sem ID e são descartados no filtro geográfico
 # abaixo — a maioria parece mesmo ficar fora do município de SP).
 xwalk <- readRDS(here("bases", "crosswalk_conjuntos_sp.rds"))
@@ -117,7 +117,7 @@ interr22 <- recuperar_id_via_crosswalk(2022)
 interr21 <- recuperar_id_via_crosswalk(2021)
 interr20 <- recuperar_id_via_crosswalk(2020)
 
-# 2026 — schema novo da ANEEL (achado de 23/08/2026, ver CLAUDE.md "Lacuna de
+# 2026 — schema novo da ANEEL (achado de 23/08/2026, ver AGENTS.md "Lacuna de
 # dados"): 26 colunas, nomenclatura trocada, causa já vem separada em 4 campos
 # (Origem/Tipo/Causa/Detalhe) em vez de um único campo ";"-separado. Já tem
 # CodConjUnidadeConsumidora nativo (não precisa do crosswalk de nome) — mesmo
@@ -130,7 +130,7 @@ harmonizar_2026 <- function() {
     collect()
   # DscMotivoExpurgo (schema 2026) -> IdeMotivoInterrupcao (mesmos códigos 0-8
   # do campo IdeMotivoExpurgo do dicionário oficial da ANEEL, ver
-  # bases/DICIONARIO_DADOS.md e CLAUDE.md, "Índice Apagão-SP (DEC/FEC)").
+  # bases/DICIONARIO_DADOS.md e AGENTS.md, "Índice Apagão-SP (DEC/FEC)").
   # Achado de 23/08/2026: harmonizar_2026() original deixava esse campo NA
   # pra todo 2026 — bloqueava o filtro de expurgo do DEC/FEC pra esse ano.
   #
@@ -185,7 +185,7 @@ interr <- bind_rows(interr26, interr25, interr24, interr23, interr22, interr21, 
 interr <- interr |> filter(!is.na(NumAno))
 
 # Dedup de linhas 100% identicas (achado de 24/08/2026, investigacao de
-# duplicacao — ver LOG.md e CLAUDE.md "Proximos passos"): 14 linhas
+# duplicacao — ver LOG.md e AGENTS.md "Proximos passos"): 14 linhas
 # duplicadas encontradas em 2020 (raw nacional, ja existiam assim antes do
 # crosswalk — nao e efeito do join). Volume desprezivel (~0,0005% da serie
 # inteira) mas sem motivo pra manter — rede de seguranca pra qualquer ano

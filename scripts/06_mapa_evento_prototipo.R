@@ -1,7 +1,7 @@
 # APAGAO SP - Protótipo de mapa por evento, nível de ponto de conexão da UC
 # Marco Antonio Faganello - marcofaga@gmail.com
 #
-# Contexto (24/08/2026, ver CLAUDE.md "Próximos passos" itens 4 e 6, e LOG.md):
+# Contexto (24/08/2026, ver AGENTS.md "Próximos passos" itens 4 e 6, e LOG.md):
 # investigação da granularidade geográfica disponível além de conjunto elétrico
 # concluiu que dá pra chegar em dois níveis mais finos, ambos validados por
 # match de código E por plausibilidade geográfica em escala (não só uma
@@ -17,7 +17,7 @@
 # Este script é um PROTÓTIPO/MODELO — gera o mapa de UM evento (aleatório por
 # padrão) pra visualizar o resultado. Não está integrado ao pipeline principal
 # (03_montar_base_sampa.R) nem ao site ainda. Serve de base pra uma futura
-# peça de mapa/vídeo da dinâmica dos apagões (visão registrada no CLAUDE.md,
+# peça de mapa/vídeo da dinâmica dos apagões (visão registrada no AGENTS.md,
 # item 6) — ainda não é prioridade, decisão de escopo pendente com Marco.
 #
 # RESSALVA IMPORTANTE (manter em qualquer uso público deste mapa): ele mostra

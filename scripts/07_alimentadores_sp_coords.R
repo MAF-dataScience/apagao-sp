@@ -2,7 +2,7 @@
 # Marco Antonio Faganello - marcofaga@gmail.com
 #
 # Contexto (24/08/2026): construcao do video time-lapse de apagoes (ver
-# CLAUDE.md, "Proximos passos" item 6). Renderizar o traçado de um
+# AGENTS.md, "Proximos passos" item 6). Renderizar o traçado de um
 # alimentador via sf/GEOS a cada frame e caro demais para um video de
 # milhares de frames - testado e descartado dois caminhos:
 #   - plot(sf) direto no SSDMT bruto (~1000 segmentos/alimentador): ~4-13s/frame

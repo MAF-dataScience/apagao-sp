@@ -19,19 +19,19 @@ Relação entre eles: alimentador e subestação descrevem **por onde a energia 
 
 ## Unidade de observação
 
-**Cada linha é um evento de interrupção não programada de energia elétrica, reportado pela distribuidora para um conjunto elétrico** (agrupamento de unidades consumidoras — ver `CLAUDE.md`, glossário implícito na seção de fonte de dados) na cidade de São Paulo.
+**Cada linha é um evento de interrupção não programada de energia elétrica, reportado pela distribuidora para um conjunto elétrico** (agrupamento de unidades consumidoras — ver `AGENTS.md`, glossário implícito na seção de fonte de dados) na cidade de São Paulo.
 
 **Não é uma unidade consumidora (domicílio/ligação) por linha.** `NumUnidadeConsumidora` é uma **contagem agregada** — quantas unidades consumidoras do conjunto foram atingidas *naquele evento específico* —, não um identificador individual. Duas famílias de consumidor no mesmo conjunto, atingidas pelo mesmo evento, geram **uma linha só** com `NumUnidadeConsumidora = 2`, não duas linhas.
 
-**A granularidade real é conjunto × subestação × alimentador, não só conjunto** (achado de 24/08/2026, investigação de duplicação — ver `CLAUDE.md` "Próximos passos" e `LOG.md`). Uma mesma ocorrência física de interrupção pode gerar 2+ linhas legítimas quando atinge mais de um alimentador dentro do mesmo conjunto — mesmo início/fim/causa/unidades atingidas, `DscAlimentadorSubestacao` diferente. Isso **não é duplicata**: é o grão real do registro que a distribuidora envia ao DutoNet da ANEEL. Confirmado com evidência direta no schema 2026 (que trafega `CodAlimentador`/`CodSubestacao` como código, harmonizado pra este campo em 24/08/2026 — antes vinha `NA`, o que mascarava esses sub-eventos como se fossem duplicata de conjunto). Portanto: **não agrupar/deduplicar por (conjunto, início, fim, unidades atingidas) sem incluir subestação/alimentador na chave** — fazer isso descartaria eventos reais, não duplicatas.
+**A granularidade real é conjunto × subestação × alimentador, não só conjunto** (achado de 24/08/2026, investigação de duplicação — ver `AGENTS.md` "Próximos passos" e `LOG.md`). Uma mesma ocorrência física de interrupção pode gerar 2+ linhas legítimas quando atinge mais de um alimentador dentro do mesmo conjunto — mesmo início/fim/causa/unidades atingidas, `DscAlimentadorSubestacao` diferente. Isso **não é duplicata**: é o grão real do registro que a distribuidora envia ao DutoNet da ANEEL. Confirmado com evidência direta no schema 2026 (que trafega `CodAlimentador`/`CodSubestacao` como código, harmonizado pra este campo em 24/08/2026 — antes vinha `NA`, o que mascarava esses sub-eventos como se fossem duplicata de conjunto). Portanto: **não agrupar/deduplicar por (conjunto, início, fim, unidades atingidas) sem incluir subestação/alimentador na chave** — fazer isso descartaria eventos reais, não duplicatas.
 
 **Distribuidora:** uma só — `ELETROPAULO METROPOLITANA ELETRICIDADE DE SAO PAULO S.A.` (Enel SP), monopólio na capital.
 
 ## Cobertura
 
-- **Temporal:** 2018-01-01 a 2026-06-30/07-01 (2026 parcial — só jan-jun, ver `CLAUDE.md` seção "Defasagem de publicação"). 2017 fora do escopo (Eletropaulo ausente da fonte nesse ano).
+- **Temporal:** 2018-01-01 a 2026-06-30/07-01 (2026 parcial — só jan-jun, ver `AGENTS.md` seção "Defasagem de publicação"). 2017 fora do escopo (Eletropaulo ausente da fonte nesse ano).
 - **Geográfica:** conjuntos elétricos que intersectam o município de São Paulo em >50% de área (99 conjuntos únicos na base).
-- **Por ano:** 2018 (144.922) · 2019 (137.313) · 2020 (146.905) · 2021 (153.169) · 2022 (195.529) · 2023 (233.219) · 2024 (278.413) · 2025 (308.559) · 2026 (166.881, parcial). 2020-2023 subiram após a correção completa do crosswalk de conjunto (94,4%→100% de cobertura, ver `CLAUDE.md` "Lacuna de dados" e `bases/METODOLOGIA_DEC_FEC.md`).
+- **Por ano:** 2018 (144.922) · 2019 (137.313) · 2020 (146.905) · 2021 (153.169) · 2022 (195.529) · 2023 (233.219) · 2024 (278.413) · 2025 (308.559) · 2026 (166.881, parcial). 2020-2023 subiram após a correção completa do crosswalk de conjunto (94,4%→100% de cobertura, ver `AGENTS.md` "Lacuna de dados" e `bases/METODOLOGIA_DEC_FEC.md`).
 
 ## Filtros já aplicados (não é o dado bruto da ANEEL)
 
@@ -39,15 +39,15 @@ Relação entre eles: alimentador e subestação descrevem **por onde a energia 
 - `causa_02 == "NAO PROGRAMADA"` (exclui interrupções programadas — mas ver ressalva de `DscTipoInterrupcao` abaixo)
 - `causa_03 != "NAO CLASSIFICADA"`
 - `causa_04` não é "empresas de serviços públicos ou suas contratadas" nem "não identificada"
-- Conjunto elétrico precisa estar em SP capital (critério de área de interseção >50%, ver `CLAUDE.md`)
+- Conjunto elétrico precisa estar em SP capital (critério de área de interseção >50%, ver `AGENTS.md`)
 
-**Não aplicado ainda:** filtro de duração mínima (3min) e exclusão de "expurgos" regulatórios (`IdeMotivoInterrupcao`/`IdeMotivoExpurgo`) — necessários para o índice DEC/FEC oficial, mas não para o uso descritivo geral da base. Ver `CLAUDE.md`, seção "Índice Apagão-SP (DEC/FEC)".
+**Não aplicado ainda:** filtro de duração mínima (3min) e exclusão de "expurgos" regulatórios (`IdeMotivoInterrupcao`/`IdeMotivoExpurgo`) — necessários para o índice DEC/FEC oficial, mas não para o uso descritivo geral da base. Ver `AGENTS.md`, seção "Índice Apagão-SP (DEC/FEC)".
 
 ## Dicionário de colunas
 
 | Coluna | Tipo | Descrição | Notas |
 |---|---|---|---|
-| `DatGeracaoConjuntoDados` | Date | Data de geração/processamento do extrato anual da ANEEL | Uma data por arquivo-ano, não por registro — não usar para medir defasagem por linha (ver `CLAUDE.md`) |
+| `DatGeracaoConjuntoDados` | Date | Data de geração/processamento do extrato anual da ANEEL | Uma data por arquivo-ano, não por registro — não usar para medir defasagem por linha (ver `AGENTS.md`) |
 | `IdeConjuntoUnidadeConsumidora` | numeric | Código do conjunto elétrico (agrupamento de unidades consumidoras) | 99 valores únicos na base; para 2020-2023 recuperado via crosswalk nome→id (`bases/crosswalk_conjuntos_sp.rds`) |
 | `DscConjuntoUnidadeConsumidora` | character | Nome do conjunto elétrico (ex: bairro/região) | |
 | `DscAlimentadorSubestacao` | character | Alimentador/circuito de onde partiu a interrupção | Em 2026 vem de `CodAlimentador` (código, não descrição textual) — mapeado em 24/08/2026, ver "Notas de qualidade" |
@@ -82,10 +82,10 @@ Relação entre eles: alimentador e subestação descrevem **por onde a energia 
 - **`DscSubestacaoDistribuicao` — mapeado mas continua 100% ausente em 2026** (investigado em 24/08/2026): não é bug de harmonização — `CodSubestacao` já vem `NA` no raw nacional pra Eletropaulo (confirmado: 0/251.199 linhas preenchidas). Não é falha exclusiva da Eletropaulo — RGE Sul, CPFL, Coelba, Equatorial Maranhão e outras grandes distribuidoras também têm 100% de ausência nesse campo; só CEMIG, COPEL e Energisa Goiás preenchem. Parece refletir uma diferença de sistema de origem entre distribuidoras, não erro de carga da ANEEL.
 - **Duração mínima já é exatamente 3min (0,050h) em toda a base, sem nenhuma linha abaixo disso** — sugere que a ANEEL já aplica esse corte na fonte, ou que o filtro de duração mínima do DEC/FEC pode já estar satisfeito por construção. **Não confirmado formalmente** — checar de novo ao implementar o filtro de duração no cálculo de DEC/FEC, em vez de assumir.
 - **211 linhas com `DscTipoInterrupcao == "Programada"`** sobrevivem ao filtro de `causa_02 == "NAO PROGRAMADA"` — os dois campos (tipo oficial vs. taxonomia de causa derivada do texto) não concordam em todos os casos. Volume pequeno (0,01% da base), não investigado a fundo.
-- **Duplicata exata — resolvido em 24/08/2026.** Linhas 100% duplicadas (concentradas em 2020) foram confirmadas como duplicata real já no raw nacional da ANEEL (não efeito do crosswalk) — 14 linhas nacionais, todas dentro de SP capital depois da correção de cobertura do crosswalk (11 antes da correção, ver `CLAUDE.md` "Lacuna de dados"). `distinct()` adicionado como rede de segurança em `03_montar_base_sampa.R`, logo após o `bind_rows()`. Base regenerada: 0 duplicata exata remanescente em todas as versões.
+- **Duplicata exata — resolvido em 24/08/2026.** Linhas 100% duplicadas (concentradas em 2020) foram confirmadas como duplicata real já no raw nacional da ANEEL (não efeito do crosswalk) — 14 linhas nacionais, todas dentro de SP capital depois da correção de cobertura do crosswalk (11 antes da correção, ver `AGENTS.md` "Lacuna de dados"). `distinct()` adicionado como rede de segurança em `03_montar_base_sampa.R`, logo após o `bind_rows()`. Base regenerada: 0 duplicata exata remanescente em todas as versões.
 - **"413 linhas compartilhando conjunto+início+fim+unidades" — era falso positivo, investigado e majoritariamente resolvido em 24/08/2026.** A unidade real de observação é conjunto × subestação × alimentador (ver "Unidade de observação" acima) — a harmonização de 2026 descartava alimentador/subestação, fazendo sub-eventos legítimos parecerem duplicata de conjunto. Com `DscAlimentadorSubestacao` mapeado: caiu pra 119 grupos / 241 linhas (de 166.881, 0,14%) compartilhando conjunto+início+fim+unidades; considerando também subestação (100% `NA` em 2026, não ajuda a diferenciar — ver nota acima) o residual fica em 97 grupos / 197 linhas. Esse residual é do mesmo tipo (pequeno, ambíguo) já observado em 2018-2025 depois de incluir subestação/alimentador na checagem — normalmente `NumOrdemInterrupcao` ou a causa diferem, sugerindo registros administrativamente distintos, não duplicata. Volume desprezível, não deduplicado.
 - **`NumOrdemInterrupcao`/`CodInterrupcao` não são (e nunca foram) chave única** — não é falha de dado. O dicionário oficial da ANEEL define `NumOrdemInterrupcao` como referência a "Ofício ou normativo determinando interrupções de energia", não um identificador de registro. No schema 2026, `CodInterrupcao` chega a ter ~106 mil valores repetidos nacionalmente, mas isso está concentrado em ~10 distribuidoras regionais pequenas com esquema de ID fraco/colisível (ex. Companhia Jaguari, 88% de repetição — usa códigos tipo data que colidem entre agentes); **pra Eletropaulo/SP especificamente, `CodInterrupcao` é 100% único** (251.199 linhas, 251.199 valores únicos, nacional). Não usar nenhum dos dois como identificador de linha.
 
 ## Proveniência
 
-Ver `CLAUDE.md` (seção "Fonte dos dados" e "Lacuna de dados") e `scripts/03_montar_base_sampa.R` para o pipeline completo de construção desta base a partir dos microdados brutos da ANEEL.
+Ver `AGENTS.md` (seção "Fonte dos dados" e "Lacuna de dados") e `scripts/03_montar_base_sampa.R` para o pipeline completo de construção desta base a partir dos microdados brutos da ANEEL.

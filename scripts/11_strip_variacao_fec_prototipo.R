@@ -1,7 +1,7 @@
 # APAGAO SP - Prototipo de strip plot: variacao da FEC por conjunto eletrico,
 # jan-jul 2026 vs. media historica leave-one-out do mesmo periodo (mesma conta
 # por tras da manchete de julho/2026 - "69 de 97 conjuntos acima da media").
-# Nao integrado ao site ainda - so prototipo, ver CLAUDE.md secao "Proximos passos".
+# Nao integrado ao site ainda - so prototipo, ver AGENTS.md secao "Proximos passos".
 # Marco Antonio Faganello - marcofaga@gmail.com
 
 library(tidyverse)

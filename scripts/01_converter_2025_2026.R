@@ -3,7 +3,7 @@
 #
 # ATENÇÃO: diferente dos anos 2017-2024 (Latin-1), os CSVs de 2025 e 2026 já vêm
 # em UTF-8 da ANEEL — confirmado via inspeção de bytes crus (23/08/2026, ver
-# CLAUDE.md "Lacuna de dados"). Ler com locale(encoding = "latin1") aqui corrompe
+# AGENTS.md "Lacuna de dados"). Ler com locale(encoding = "latin1") aqui corrompe
 # todo nome acentuado (ex.: "PARNAÍBA" virava "PARNAABA"). Usar UTF-8.
 
 library(readr)
