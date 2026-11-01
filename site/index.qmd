@@ -40,6 +40,30 @@ variacao_html <- function(pct, texto = "vs. mês anterior", invertido = FALSE, c
 
 ### Observatório de interrupções não programadas de energia elétrica na cidade de São Paulo<br>edição de `r mes_ref_label` | publicado em `r data_publicacao`<sup>1</sup> {.pagina-subtitulo}
 
+```{r}
+#| label: status-aneel
+#| echo: false
+#| results: asis
+
+# Faixa de status da ANEEL. O texto abaixo é o fallback do render; no navegador,
+# status-aneel.js relê aneel_status.json (publicado pelo monitor diário na gh-pages)
+# e acrescenta o "há N dias". O JSON mestre fica em bases/ e é copiado pro site aqui,
+# pra que cada publicação manual leve a versão mais recente junto.
+arq_status <- here::here("..", "bases", "aneel_status.json")
+invisible(file.copy(arq_status, "aneel_status.json", overwrite = TRUE))
+status_aneel <- jsonlite::read_json(arq_status)
+data_br_sp <- function(iso) format(as.POSIXct(iso, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
+                                   "%d/%m/%Y", tz = "America/Sao_Paulo")
+mes_ref_extenso <- sub(" ", " de ", mes_ref_label)
+
+cat(sprintf(
+'<div class="status-aneel" data-extrato-edicao="%s" data-mes-ref="%s"><span class="status-aneel-texto">Última atualização da base pela ANEEL: %s. Dados disponíveis até %s.</span> Verificamos o portal da ANEEL diariamente.</div>
+<script src="status-aneel.js" defer></script>',
+  status_aneel$ultima_publicacao_ano_corrente, mes_ref_extenso,
+  data_br_sp(status_aneel$ultima_publicacao), mes_ref_extenso
+))
+```
+
 #### São Paulo tem o pior julho em frequência de apagões desde 2018 {.manchete}
 
 A frequência de interrupções por unidade consumidora subiu `r fmt_pct(kpi$fec_var_anopassado)`% em relação a julho de 2025 e ficou `r fmt_pct(kpi$fec_mes_var)`% acima da média histórica do mesmo mês. A duração média subiu `r fmt_pct(kpi$dec_var_anopassado)`% em relação ao ano passado e `r fmt_pct(kpi$dec_mes_var)`% acima da média histórica. 

@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - aneel_status.json
+    - status-aneel.js
 
 website:
   title: "Apagão-SP"

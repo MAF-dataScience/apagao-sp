@@ -11,6 +11,8 @@ bases/*
 # branch separada, nao faz parte do codigo-fonte
 site/_site/
 site/.quarto/
+# copiado de bases/aneel_status.json no render (ver index.qmd, chunk status-aneel)
+site/aneel_status.json
 
 # Protótipos/figuras avulsas, não essenciais ao site nem ao pipeline
 graficos/
