@@ -1,0 +1,28 @@
+{
+    "fonte":  "https://dadosabertos.aneel.gov.br/dataset/interrupcoes-de-energia-eletrica-nas-redes-de-distribuicao",
+    "ultima_publicacao":  "2026-09-04T14:21:27Z",
+    "ano_corrente":  "2026",
+    "ultima_publicacao_ano_corrente":  "2026-09-04T14:21:27Z",
+    "historico":  [
+                      {
+                          "data":  "2026-08-04T18:12:29Z",
+                          "extratos":  [
+                                           "2017",
+                                           "2018",
+                                           "2019",
+                                           "2020",
+                                           "2021",
+                                           "2022",
+                                           "2023",
+                                           "2024",
+                                           "2025"
+                                       ]
+                      },
+                      {
+                          "data":  "2026-09-04T14:21:27Z",
+                          "extratos":  [
+                                           "2026"
+                                       ]
+                      }
+                  ]
+}
