@@ -32,6 +32,15 @@ h3.pagina-subtitulo {
   color: #555;
 }
 
+.status-aneel {
+  text-align: center;
+  font-size: 0.82rem;
+  color: #666;
+  margin: 0.8rem auto 1.2rem auto;
+  max-width: 640px;
+  line-height: 1.45;
+}
+
 h4.manchete {
   font-size: 1.35rem;
   font-weight: 700;
