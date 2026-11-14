@@ -1,0 +1,6 @@
+library(arrow); library(dplyr); library(here)
+raw <- here("raw", "interrup_energia"); stg <- file.path(raw, "download_20261114", "parquet_staging")
+le <- function(p) open_dataset(p) |> filter(grepl("ELETROPAULO|ENEL SP|Enel SP", NomAgenteRegulado)) |> select(-DatGeracaoConjuntoDados) |> collect()
+n <- distinct(le(file.path(stg, "interrupcoes-energia-eletrica-2025.parquet")))
+o <- le(file.path(raw, "parquet", "interrupcoes-energia-eletrica-2025.parquet"))
+cat("so na nova:", nrow(anti_join(n, o, by = names(o))), "| so na atual:", nrow(anti_join(o, n, by = names(o))), "\n")

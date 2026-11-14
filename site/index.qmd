@@ -22,7 +22,12 @@ fmt_pct <- function(x) scales::comma(x, big.mark = ".", decimal.mark = ",", accu
 # Data de publicação desta edição — só mês/ano (fixa, não deriva de Sys.Date()),
 # mesmo estilo de mes_ref_label ("julho 2026"). Atualizar manualmente a cada
 # publicação mensal (mesma convenção manual de edicoes.qmd).
-data_publicacao <- "setembro 2026"
+data_publicacao <- "novembro 2026"
+
+# Verbo da variação no texto da manchete ("subiu 3,2%" / "caiu 3,2%" e
+# "3,2% acima" / "3,2% abaixo"), pra não sair "subiu -4,5%" (14/11/2026).
+variou <- function(x) sprintf("%s %s%%", ifelse(x >= 0, "subiu", "caiu"), fmt_pct(abs(x)))
+acima_abaixo <- function(x) sprintf("%s%% %s", fmt_pct(abs(x)), ifelse(x >= 0, "acima", "abaixo"))
 
 variacao_html <- function(pct, texto = "vs. mês anterior", invertido = FALSE, colorir = TRUE) {
   if (is.na(pct)) return("<div class='kpi-variacao neutra'>sem comparação</div>")
@@ -64,11 +69,11 @@ cat(sprintf(
 ))
 ```
 
-#### São Paulo tem o pior julho em frequência de apagões desde 2018 {.manchete}
+#### Frequência de apagões segue acima da média em setembro, mas as quedas ficam mais curtas {.manchete}
 
-A frequência de interrupções por unidade consumidora subiu `r fmt_pct(kpi$fec_var_anopassado)`% em relação a julho de 2025 e ficou `r fmt_pct(kpi$fec_mes_var)`% acima da média histórica do mesmo mês. A duração média subiu `r fmt_pct(kpi$dec_var_anopassado)`% em relação ao ano passado e `r fmt_pct(kpi$dec_mes_var)`% acima da média histórica. 
+A frequência de interrupções por unidade consumidora ficou `r acima_abaixo(kpi$fec_mes_var)` da média histórica de setembro e praticamente igual à de setembro de 2025 (`r sprintf("%+.1f", kpi$fec_var_anopassado) |> sub(".", ",", x = _, fixed = TRUE)`%). A duração média `r variou(kpi$dec_var_anopassado)` em relação ao ano passado e ficou `r acima_abaixo(kpi$dec_mes_var)` da média histórica. Em agosto, a cidade teve o pior agosto em frequência de apagões da série, iniciada em 2018 ([edição de agosto](edicao-2026-08.html)).
 
-O aumento foi liderado por `r tolower(kpi$causa1_nome)` (`r fmt_pct(kpi$causa1_pct)`% do aumento) e por `r tolower(kpi$causa2_nome)` (`r fmt_pct(kpi$causa2_pct)`%). (metodologia da comparação em [Metodologia](metodologia.qmd#índice-apagão-sp)).
+Na comparação com setembro de 2025, a maior alta veio de `r tolower(causa_aumento_mes$causa_label[1])`: as unidades consumidoras atingidas por essa causa passaram de `r fmt_n(causa_aumento_mes$passado[1])` para `r fmt_n(causa_aumento_mes$atual[1])`. As altas foram compensadas por quedas em outras causas, e o total ficou estável. (metodologia da comparação em [Metodologia](metodologia.qmd#índice-apagão-sp)).
 
 ```{r}
 #| label: indice-card

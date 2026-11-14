@@ -68,6 +68,19 @@ dec_fec_sp <- readRDS(here("..", "bases", "dec_fec_mensal_sp.rds"))
 distritos_geo <- read_sf(here("..", "raw", "geobr", "distritos_sp_2010.gpkg"))
 alimentador_distrito_pct <- readRDS(here("..", "bases", "alimentador_distrito_pct.rds"))
 
+# Corte opcional do mês de referência (14/11/2026): APAGAO_MES_REF="AAAA-MM" faz o
+# site ser montado só com dado até aquele mês, como se a edição tivesse saído
+# naquele momento. Usado quando a ANEEL publica dois meses de uma vez e a edição
+# do mês intermediário precisa ser gerada para o arquivo (ex.: agosto/2026).
+# Sem a variável, usa a base inteira (comportamento normal).
+mes_ref_corte <- Sys.getenv("APAGAO_MES_REF", "")
+if (nzchar(mes_ref_corte)) {
+  ano_corte <- as.integer(substr(mes_ref_corte, 1, 4))
+  mes_corte <- as.integer(substr(mes_ref_corte, 6, 7))
+  base <- base |> filter(NumAno * 100 + mes_inicio <= ano_corte * 100 + mes_corte)
+  dec_fec_sp <- dec_fec_sp |> filter(NumAno * 100 + mes_inicio <= ano_corte * 100 + mes_corte)
+}
+
 # Série mensal agregada (toda a série, usada no gráfico histórico e no destaque do mês) ====
 serie_mensal <- base |>
   group_by(NumAno, mes_inicio) |>

@@ -97,7 +97,7 @@ if (anyDuplicated(serie_mensal_check$data) > 0) {
 # 2026 deve estar parcial (jan-jun, ver AGENTS.md > "Defasagem de
 # publicação") - avisa (não é erro) se a base já tiver meses além disso,
 # só pra lembrar de atualizar este limite numa sessão futura
-limite_2026 <- as.Date("2026-07-01")
+limite_2026 <- as.Date("2026-09-01")
 meses_2026_alem_do_esperado <- serie_mensal_check |>
   filter(NumAno == 2026, data > limite_2026)
 if (nrow(meses_2026_alem_do_esperado) > 0) {

@@ -4,4 +4,6 @@ title: "Edições anteriores"
 
 A edição do mês corrente está sempre na [página inicial](index.qmd). Aqui ficam os meses já superados, preservados exatamente como foram publicados originalmente (os números não são recalculados com dado mais recente).
 
+- [Agosto de 2026](edicao-2026-08.html) — publicada em 14/11/2026, junto com a de setembro (a ANEEL liberou os dois meses de uma vez)
+- [Julho de 2026](edicao-2026-07.html) — publicada em 10/09/2026
 - [Junho de 2026](edicao-2026-06.html) — publicada em 25/08/2026
